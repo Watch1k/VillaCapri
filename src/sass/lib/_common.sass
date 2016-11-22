@@ -334,6 +334,9 @@ img
 			z-index: 3
 			align-self: flex-start
 			margin: 10px 0
+			transition: all 0.4s
+		&:hover &-icon
+			transform: translateX(55px)
 		&:before
 			pointer-events: none
 			content: ''
@@ -351,7 +354,7 @@ img
 		&:after
 			transition: all 0.4s
 		&:hover:before
-			background-color: rgba(0, 0, 0, .35)
+			background-color: rgba(0, 0, 0, .25)
 		&:hover:after
 			transform: scale(1.2)
 		&_prev
@@ -483,12 +486,12 @@ img
 		+sfui
 		color: #ffffff
 		background-size: cover
-		border-left: 1px solid rgba(0, 0, 0, .55)
-		border-top: 1px solid rgba(0, 0, 0, .55)
+		border-left: 1px solid rgba(0, 0, 0, .4)
+		border-top: 1px solid rgba(0, 0, 0, .4)
 		&:last-child
 			background: #3876ae
 		&:nth-child(3) ~ &
-			border-bottom: 1px solid rgba(0, 0, 0, .55)
+			border-bottom: 1px solid rgba(0, 0, 0, .4)
 		&:nth-child(3) ~ &:last-child
 			border: 1px solid rgba(0, 0, 0, .1)
 		&:before
