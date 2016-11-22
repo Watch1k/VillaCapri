@@ -16,10 +16,9 @@ html
       link(rel="stylesheet" media="all" href="css/screen.css")
     <!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
   body
-    .wrapper
-      include _header
-      main.main
-        block content
-    include _footer
+    include _header
+    .wrapper.js-wrapper
+      block content
+    include _right
     block js
       script(src="js/app.js")

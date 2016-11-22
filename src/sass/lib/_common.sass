@@ -1,7 +1,12 @@
++font('SFUIText-Regular', 'SFUIText-Regular')
++font('SFUIText-Medium', 'SFUIText-Medium')
+
 // fonts
 $default-fonts: Arial, sans-serif
-//=sans
-	font-family: 'Open Sans', $default-fonts
+=sfui
+	font-family: 'SFUIText-Regular', $default-fonts
+=sfui-medium
+	font-family: 'SFUIText-Medium', $default-fonts
 
 // colors
 // $black: #000
@@ -19,20 +24,13 @@ $default-fonts: Arial, sans-serif
 body
 	position: relative
 	min-width: 320px
-	font-family: $default-fonts
-	font-size: 16px
+	+sfui-medium
+	font-size: 21px
 	color: #333
-	line-height: 1.42857
-
-.wrapper
-	position: relative
-	overflow: hidden
-	margin: 0 auto
-	min-height: 100%
-	padding-bottom: 40px
+	line-height: 1.2
 
 .container
-	//+container
+	+pie-clearfix
 
 
 /* Helpers
@@ -88,23 +86,469 @@ img
 	 Header
 	 =================================== */
 .header
+	position: fixed
+	z-index: 101
+	top: 0
+	left: 270px
+	right: 260px
+	padding-top: 15px
+	display: flex
+	flex-direction: row
+	justify-content: space-around
+	align-items: center
+	&__item
+		font-size: 0
+		+trs
+		&:hover
+			color: #1176ae
+		&-icon
+			position: relative
+			margin-right: 25px
+		&-counter
+			position: absolute
+			z-index: 1
+			top: -2px
+			right: -2px
+			padding-left: 3px
+			padding-right: 3px
+			height: 18px
+			min-width: 18px
+			font-size: 12px
+			color: #ffffff
+			line-height: 15px
+			text-align: center
+			border-radius: 50%
+			border: 2px solid #ffffff
+			background: #1176ae
+		&-text
+			display: inline-block
+			vertical-align: middle
+			font-size: 21px
+			& + &
+				+sfui
+		&_phone
+			transform: translateY(0)
+			opacity: 1
+			transition: all 0.25s, transform 0.4s, opacity 0.4s
+			&.is-active
+				opacity: 0
+				transform: translateY(-150%)
+				
+			
+/* ===================================
+	 Aside
+	 =================================== */
+.aside
+	overflow: auto
+	display: flex
+	padding-top: 50px
+	padding-bottom: 50px
+	flex-direction: column
+	justify-content: space-between
+	align-items: center
+	position: fixed
+	z-index: 102
+	top: 0
+	bottom: 0
+	height: 100%
+	left: 0
+	width: 190px
+	background-color: rgba(255, 255, 255, .75)
+	&__logo
+		flex-shrink: 0
+	&__socials
+		flex-shrink: 0
+	&__geo
+		flex-shrink: 0
+		+s(geo)
+	&__arc
+		flex-shrink: 0
+		+s(arc)
+		
+.socials
+	&__link
+		display: block
+		& + &
+			margin-top: 12px
+		&:nth-child(1)
+			+s(soc-1)
+		&:nth-child(2)
+			+s(soc-2)
+		&:nth-child(3)
+			+s(soc-3)
+		&:nth-child(4)
+			+s(soc-4)
+		&:nth-child(5)
+			+s(soc-5)
+	&_line
+		display: flex
+		flex-direction: row
+		justify-content: center
+	&_line &__link + &__link
+		margin-top: 0
+		margin-left: 12px
+		
+.nav
+	position: relative
+	padding-bottom: 30px
+	text-align: center
+	text-transform: uppercase
+	&:before
+		content: ''
+		position: absolute
+		z-index: 1
+		width: 80px
+		height: 1px
+		left: 0
+		right: 0
+		bottom: 0
+		margin-left: auto
+		margin-right: auto
+		background-color: #333333
+	&__link
+		display: block
+		line-height: 1.67
+		+trs
+		&:hover
+			color: #1176ae
+		& + &
+			+sfui
+
+#pp-nav
+	&.right
+		top: auto
+		right: 220px
+		bottom: 40px
+		li
+			margin: 0
+			width: auto
+			height: auto
+			+ li
+				margin-top: 7px
+		span
+			position: relative
+			display: block
+			width: 18px
+			height: 18px
+			top: auto
+			left: auto
+			border-width: 3px
+			+trs
+		.active
+			span
+				background: #ffffff
+				
+/* ===================================
+	 Navigation
+	 =================================== */
+.navigation
+	overflow: auto
+	display: none
+	padding-top: 50px
+	padding-bottom: 50px
+	flex-direction: column
+	justify-content: space-between
+	align-items: center
+	position: fixed
+	z-index: 103
+	top: 0
+	bottom: 0
+	left: 0
+	width: 380px
+	background-color: rgba(255, 255, 255, .75)
+	transform: translateX(-190px)
+	transition: transform 0.4s
+	&.is-active
+		transform: translateX(0)
+	&__logo
+		flex-shrink: 0
+	&__arc
+		flex-shrink: 0
+	&__phone
+		flex-shrink: 0
+		&-text
+			font-size: 24px
+			display: block
+			& + &
+				+sfui
+				font-size: 18px
+	&__address
+		flex-shrink: 0
+		text-align: center
+	&__socials
+		flex-shrink: 0
 
 
 /* ===================================
-	 Footer
+	 Control
 	 =================================== */
-.footer
-	margin-top: -40px
-	height: 40px
+.control
+	display: flex
+	flex-direction: column
+	position: fixed
+	z-index: 102
+	top: 0
+	right: 0
+	bottom: 0
+	height: 100%
+	width: 195px
+	border-left: 5px solid #ffffff
+	&__item
+		cursor: pointer
+		flex: 1
+		display: flex
+		flex-direction: column
+		align-items: center
+		padding: 0 10px 0 30px
+		justify-content: center
+		position: relative
+		overflow: hidden
+		&-text
+			margin: 10px 0
+			position: relative
+			z-index: 3
+			color: #ffffff
+		&-icon
+			position: relative
+			z-index: 3
+			align-self: flex-start
+			margin: 10px 0
+		&:before
+			pointer-events: none
+			content: ''
+			position: absolute
+			z-index: 2
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			width: 100%
+			height: 100%
+			background-color: rgba(0, 0, 0, .65)
+			transition: all 0.4s
+			border-top: 1px solid rgba(255, 255, 255, .4)
+		&:after
+			transition: all 0.4s
+		&:hover:before
+			background-color: rgba(0, 0, 0, .35)
+		&:hover:after
+			transform: scale(1.2)
+		&_prev
+			&:after
+				pointer-events: none
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				width: 100%
+				height: 100%
+				z-index: 1
+				background: #fff url(../img/bg/section-5.jpg) center center no-repeat
+				background-size: cover
+		&_current
+			overflow: visible
+			flex: 2
+			&:before
+				pointer-events: none
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				width: 100%
+				height: 100%
+				z-index: 1
+				background: #fff url(../img/bg/section-1.jpg) center center no-repeat
+				background-size: cover
+			&:after
+				content: ''
+				position: absolute
+				z-index: 1
+				pointer-events: none
+				right: 100%
+				margin-right: 5px
+				top: 60px
+				+arr(15,30,#ffffff,l)
+				background-color: transparent
+			&:hover:after
+				transform: none
+		&_next
+			&:after
+				content: ''
+				pointer-events: none
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				width: 100%
+				height: 100%
+				z-index: 1
+				background: #fff url(../img/bg/section-2.jpg) center center no-repeat
+				background-size: cover
+		&_last
+			&:after
+				content: ''
+				pointer-events: none
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				width: 100%
+				height: 100%
+				z-index: 1
+				background: #fff url(../img/bg/section-3.jpg) center center no-repeat
+				background-size: cover
 
 
 /* ===================================
 	 Main
 	 =================================== */
-.main
-
-
+.section
+	width: calc(100% - 195px)
+	top: 0
+	left: 0
+	&_1
+		background: #fff url(../img/bg/section-1.jpg) center center no-repeat
+		background-size: cover
+	&_2
+		background: #fff url(../img/bg/section-2.jpg) center center no-repeat
+		background-size: cover
+	&_3
+		background: #fff url(../img/bg/section-3.jpg) center center no-repeat
+		background-size: cover
+	&_4
+		background: #fff url(../img/bg/section-4.jpg) center center no-repeat
+		background-size: cover
+	&_5
+		background: #fff url(../img/bg/section-5.jpg) center center no-repeat
+		background-size: cover
+		
+		
+/* Content
+	----------------------------------- */
+.content
+	position: absolute
+	z-index: 1
+	right: 0
+	top: 0
+	bottom: 0
+	left: 190px
+	display: flex
+	flex-direction: column
+	align-items: flex-end
+	&__main
+		margin-top: 20vh
+		max-width: 670px
+		padding-top: 30px
+		padding-right: 50px
+		flex-shrink: 1
+		flex-grow: 0
+		flex-basis: calc(40% + 1px)
+		+sfui
+		text-align: right
+		background-color: rgba(255, 255, 255, .75)
+		border: 1px solid rgba(0, 0, 0, .1)
+		border-right: none
+		&-title
+			font-size: 84px
+		&-text
+			margin-top: 10px
+			font-size: 45px
+		
+		
 /* ===================================
 	 Other Styles
 	 =================================== */
-
+.hamburger
+	position: absolute
+	left: 190px
+	top: 0
+	z-index: 104
+	padding: 20px
+	pointer-events: auto
+	-webkit-tap-highlight-color: transparent
+	cursor: pointer
+	transition-property: opacity, -webkit-filter
+	transition-property: opacity, filter
+	transition-property: opacity, filter, -webkit-filter
+	transition-duration: 0.15s
+	transition-timing-function: linear
+	font: inherit
+	color: inherit
+	text-transform: none
+	background-color: #fff
+	border: 0
+	overflow: visible
+	transition: all 0.4s
+	&:hover
+		background-color: rgba(255, 255, 255, .75)
+	&__box
+		width: 30px
+		height: 30px
+		display: block
+		position: relative
+	&__inner
+		display: block
+		top: 12px
+		width: 30px
+		height: 6px
+		background-color: #808080
+		position: absolute
+		transition-property: -webkit-transform
+		transition-property: transform
+		transition-property: transform, -webkit-transform
+		transition-duration: 0.15s
+		transition-timing-function: ease
+		&::before, &::after
+			width: 30px
+			height: 6px
+			background-color: #808080
+			position: absolute
+			transition-property: -webkit-transform
+			transition-property: transform
+			transition-property: transform, -webkit-transform
+			transition-duration: 0.15s
+			transition-timing-function: ease
+		&::before, &::after
+			content: ""
+			display: block
+		&::before
+			top: -12px
+		&::after
+			bottom: -12px
+	&.is-active
+		transform: translateX(190px)
+	&.is-active &__inner
+		background-color: #808080
+	&.is-active &__inner:before,
+	&.is-active &__inner:after
+		background-color: #808080
+	&_spin &__inner
+		transition-duration: 0.3s
+		transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19)
+		&::before
+			transition: top 0.1s 0.34s ease-in, opacity 0.1s ease-in
+		&::after
+			transition: bottom 0.1s 0.34s ease-in, -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+			transition: bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+			transition: bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+	&.is-active &__inner
+		-webkit-transform: rotate(225deg)
+		transform: rotate(225deg)
+		transition-delay: 0.14s
+		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+		&::before
+			top: 0
+			opacity: 0
+			transition: top 0.1s ease-out, opacity 0.1s 0.14s ease-out
+		&::after
+			bottom: 0
+			-webkit-transform: rotate(-90deg)
+			transform: rotate(-90deg)
+			transition: bottom 0.1s ease-out, -webkit-transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1)
+			transition: bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1)
+			transition: bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1)

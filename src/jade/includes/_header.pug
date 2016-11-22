@@ -1,27 +1,59 @@
-//block navToggle
-//	- var headToggle = ''
-//-var headMenu = ['Menu 1', 'Menu 2', 'Menu 3']
-//-var icons = ['name1', 'name2', 'name3']
-//header.header
-//	.container
-//		// begin logo
-//		.header__logo.logo
-//			a.logo__link(href="index.html")
-//				img.logo__img(src="img/logo.png" alt="Logo")
-//		// end logo
-//		// begin main-nav
-//		nav.nav
-//			ul.nav__list
-//				-var i = 0
-//				each value in headMenu
-//					if headToggle === value
-//						li.nav__item.is-active
-//							.nav__icon
-//								+i(icons[i++])
-//							a.nav__link(href='#' title=value)= value
-//					else
-//						li.nav__item
-//							.nav__icon
-//								+i(icons[i++])
-//							a.nav__link(href='#' title=value)= value
-//		// end main-nav
+header.header
+	a.header__item.header__item_phone.js-phone(href='tel:+79879201792')
+		.header__item-icon.icon.icon-phone
+		span.header__item-text +7 987 92 017 92
+		span.header__item-text &nbsp;КРУГЛОСУТОЧНО
+	a.header__item(href='#')
+		.header__item-icon.icon.icon-present
+			.header__item-counter 54
+		span.header__item-text Наши акции
+	a.header__item(href='#')
+		.header__item-icon.icon.icon-present
+			.header__item-counter 3
+		span.header__item-text Мои бронирования
+	a.header__item(href='#')
+		.header__item-icon.icon.icon-present
+		span.header__item-text Иванов Иван
+
+.hamburger.hamburger_spin.js-hamburger
+	.hamburger__box
+		.hamburger__inner
+
+aside.aside.js-aside
+	a.aside__logo.logo(href='index.html')
+		img.logo__img(src='img/logo.png' alt='Villa Capri' title='Villa Capri')
+	.aside__socials.socials
+		a.socials__link(href='#' title='vkontakte')
+		a.socials__link(href='#' title='odnoklassniki')
+		a.socials__link(href='#' title='facebook')
+		a.socials__link(href='#' title='instagram')
+		a.socials__link(href='#' title='periscope')
+	button.aside__geo(type='button')
+	a.aside__arc(href='#')
+
+//begin navigation
+.navigation.js-navigation
+	a.navigation__logo.logo.logo_full(href='index.html')
+		img.logo__img(src='img/logo-full.png' alt='Villa Capri' title='Villa Capri')
+	nav.navigation__nav.nav
+		a.nav__link(href='#') О VILLA CAPRI
+		a.nav__link(href='#') НОМЕРА
+		a.nav__link(href='#') РЕСТОРАН
+		a.nav__link(href='#') ТЕРРИТОРИЯ
+		a.nav__link(href='#') ЭКСКУРСИИ
+		a.nav__link(href='#') АКТИВНЫЙ ОТДЫХ
+		a.nav__link(href='#') ПЛАН МЕРОПРИЯТИЙ
+		a.nav__link(href='#') ГАЛЕРЕЯ
+		a.nav__link(href='#') КОНТАКТЫ
+	a.navigation__phone(href='tel:+79879201792')
+		span.navigation__phone-text +7 987 92 017 92
+		span.navigation__phone-text КРУГЛОСУТОЧНО
+	.navigation__address Крым, <br>г. Щелкино, п.г.т. Нептун
+	.navigation__socials.socials.socials_line
+		a.socials__link(href='#' title='vkontakte')
+		a.socials__link(href='#' title='odnoklassniki')
+		a.socials__link(href='#' title='facebook')
+		a.socials__link(href='#' title='instagram')
+		a.socials__link(href='#' title='periscope')
+	a.navigation__arc(href='#') СОЗДАНО РУКАМИ АКТИКОМ
+//end navigation
