@@ -264,8 +264,28 @@ img
 		flex-shrink: 0
 	&__arc
 		flex-shrink: 0
+		+sfui
+		font-size: 13px
+		+trs
+		&:before
+			content: ''
+			display: block
+			+s(arc-black)
+			margin-left: auto
+			margin-right: auto
+			margin-bottom: 10px
+		&:hover
+			color: #1176ae
+		&-color
+			display: block
+			text-align: center
+			+sfui-medium
 	&__phone
 		flex-shrink: 0
+		text-align: center
+		+trs
+		&:hover
+			color: #1176ae
 		&-text
 			font-size: 24px
 			display: block
@@ -440,14 +460,66 @@ img
 	display: flex
 	flex-direction: column
 	align-items: flex-end
-	&__main
+	&__inner
+		display: flex
+		flex-direction: row
 		margin-top: 20vh
-		max-width: 670px
-		padding-top: 30px
-		padding-right: 50px
 		flex-shrink: 1
 		flex-grow: 0
 		flex-basis: calc(40% + 1px)
+	&__left
+		position: relative
+		width: 570px
+		height: 100%
+		display: flex
+		flex-direction: row
+		flex-wrap: wrap
+	&__block
+		cursor: pointer
+		position: relative
+		width: 190px
+		height: 50%
+		+sfui
+		color: #ffffff
+		background-size: cover
+		border-left: 1px solid rgba(0, 0, 0, .55)
+		border-top: 1px solid rgba(0, 0, 0, .55)
+		&:last-child
+			background: #3876ae
+		&:nth-child(3) ~ &
+			border-bottom: 1px solid rgba(0, 0, 0, .55)
+		&:nth-child(3) ~ &:last-child
+			border: 1px solid rgba(0, 0, 0, .1)
+		&:before
+			pointer-events: none
+			content: ''
+			position: absolute
+			z-index: 1
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			width: 100%
+			height: 100%
+			background-color: rgba(0, 0, 0, .5)
+		&:last-child
+			border: none
+			&:before
+				display: none
+				content: ''
+		&-in
+			position: relative
+			z-index: 2
+			padding-left: 15px
+			height: 100%
+			padding-top: 35%
+		&-title
+			font-size: 27px
+	&__main
+		width: 670px
+		padding-top: 30px
+		padding-right: 50px
+		height: 100%
 		+sfui
 		text-align: right
 		background-color: rgba(255, 255, 255, .75)
@@ -455,6 +527,7 @@ img
 		border-right: none
 		&-title
 			font-size: 84px
+			text-transform: uppercase
 		&-text
 			margin-top: 10px
 			font-size: 45px
