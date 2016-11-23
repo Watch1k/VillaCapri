@@ -401,12 +401,20 @@ img
 	height: 100%
 	width: 195px
 	border-left: 5px solid #ffffff
+	&:before
+		content: ''
+		position: absolute
+		right: 100%
+		margin-right: 5px
+		top: 20%
+		margin-top: 60px
+		+arr(15,30,#ffffff,l)
 	+r(1439)
 		width: 160px
 	&__item
+		display: none
 		cursor: pointer
 		flex: 1
-		display: flex
 		flex-direction: column
 		align-items: center
 		padding: 0 10px 0 30px
@@ -423,6 +431,7 @@ img
 			z-index: 3
 			color: #ffffff
 			width: 100%
+			order: 1
 			+r(1919)
 				margin: 5px 0
 				font-size: 18px
@@ -431,10 +440,11 @@ img
 				font-size: 16px
 		&-icon
 			position: relative
+			order: 2
 			z-index: 3
 			align-self: flex-start
 			margin: 10px 0
-			transition: all 0.4s
+			transition: transform 0.4s
 		&:hover &-icon
 			transform: translateX(55px)
 			+r(1919)
@@ -456,86 +466,68 @@ img
 			transition: all 0.4s
 			border-top: 1px solid rgba(255, 255, 255, .4)
 		&:after
+			content: ''
+			pointer-events: none
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			width: 100%
+			height: 100%
+			z-index: 1
+			background-repeat: no-repeat
+			background-position: center
+			background-color: #fff
+			background-size: cover
 			transition: all 0.4s
+		&:nth-child(1):after
+			background-image: url(../img/bg/section-1-sm.jpg)
+		&:nth-child(2):after
+			background-image: url(../img/bg/section-2-sm.jpg)
+		&:nth-child(3):after
+			background-image: url(../img/bg/section-3-sm.jpg)
+		&:nth-child(4):after
+			background-image: url(../img/bg/section-4-sm.jpg)
+		&:nth-child(5):after
+			background-image: url(../img/bg/section-5-sm.jpg)
 		&:hover:before
 			background-color: rgba(0, 0, 0, .25)
 		&:hover:after
 			transform: scale(1.2)
 		&_prev
-			&:after
-				pointer-events: none
-				content: ''
-				position: absolute
-				top: 0
-				left: 0
-				right: 0
-				bottom: 0
-				width: 100%
-				height: 100%
-				z-index: 1
-				background-repeat: no-repeat
-				background-position: center
-				background-image: url(../img/bg/section-5-sm.jpg)
-				background-color: #fff
-				background-size: cover
+			display: flex
+			order: 1
+		&_prev &-icon
+			order: 0
+			+s(arrow-prev)
 		&_current
+			cursor: auto
 			overflow: visible
 			flex: 2
+			display: flex
+			order: 2
+			transition: none
 			&:before
-				pointer-events: none
-				position: absolute
-				top: 0
-				left: 0
-				right: 0
-				bottom: 0
-				width: 100%
-				height: 100%
-				z-index: 1
-				background-repeat: no-repeat
-				background-position: center
-				background-image: url(../img/bg/section-1-sm.jpg)
-				background-color: #fff
-				background-size: cover
-			&:after
-				content: ''
-				position: absolute
-				z-index: 1
-				pointer-events: none
-				right: 100%
-				margin-right: 5px
-				top: 60px
-				+arr(15,30,#ffffff,l)
-				background-color: transparent
+				display: none
+			&:hover:before
+				display: none
 			&:hover:after
 				transform: none
+				transition: none
+		&_current &-text,
+		&_current &-icon
+			display: none
 		&_next
-			&:after
-				content: ''
-				pointer-events: none
-				position: absolute
-				top: 0
-				left: 0
-				right: 0
-				bottom: 0
-				width: 100%
-				height: 100%
-				z-index: 1
-				background: #fff url(../img/bg/section-2-sm.jpg) center center no-repeat
-				background-size: cover
+			display: flex
+			order: 3
+		&_next &-icon
+			+s(arrow-next)
 		&_last
-			&:after
-				content: ''
-				pointer-events: none
-				position: absolute
-				top: 0
-				left: 0
-				right: 0
-				bottom: 0
-				width: 100%
-				height: 100%
-				z-index: 1
-				background: #fff url(../img/bg/section-3-sm.jpg) center center no-repeat
-				background-size: cover
+			display: flex
+			order: 4
+		&_last &-icon
+			+s(arrow-next-double)
 
 
 /* ===================================
