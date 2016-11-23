@@ -23,11 +23,21 @@ $default-fonts: Arial, sans-serif
 	 =================================== */
 body
 	position: relative
-	min-width: 320px
+	min-width: 1280px
 	+sfui-medium
 	font-size: 21px
 	color: #333
 	line-height: 1.2
+	
+.wrapper
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	height: 100%
+	width: 100%
+	z-index: 1
 
 .container
 	+pie-clearfix
@@ -96,6 +106,18 @@ img
 	flex-direction: row
 	justify-content: space-around
 	align-items: center
+	+r(1919)
+		padding-top: 20px
+		.icon-phone
+			+sr(phone)
+		.icon-present
+			+sr(present)
+		.icon-lock
+			+sr(lock)
+		.icon-user
+			+sr(user)
+	+r(1599)
+		left: 220px
 	&__item
 		font-size: 0
 		+trs
@@ -104,6 +126,8 @@ img
 		&-icon
 			position: relative
 			margin-right: 25px
+			+r(1919)
+				margin-right: 10px
 		&-counter
 			position: absolute
 			z-index: 1
@@ -120,10 +144,22 @@ img
 			border-radius: 50%
 			border: 2px solid #ffffff
 			background: #1176ae
+			+r(1919)
+				border-width: 1px
+				line-height: 17px
+				top: -10px
+				right: -9px
 		&-text
 			display: inline-block
 			vertical-align: middle
 			font-size: 21px
+			& &
+				+r(1439)
+					display: none
+			+r(1919)
+				font-size: 18px
+			+r(1599)
+				font-size: 16px
 			& + &
 				+sfui
 		&_phone
@@ -141,8 +177,6 @@ img
 .aside
 	overflow: auto
 	display: flex
-	padding-top: 50px
-	padding-bottom: 50px
 	flex-direction: column
 	justify-content: space-between
 	align-items: center
@@ -154,15 +188,33 @@ img
 	left: 0
 	width: 190px
 	background-color: rgba(255, 255, 255, .75)
+	+r(1599)
+		width: 140px
 	&__logo
 		flex-shrink: 0
+		margin: 25px 0
+		+r(1599)
+			margin: 15px 0
+		+r(1599)
+			width: 70px
 	&__socials
 		flex-shrink: 0
+		margin: 25px 0
+		+r(1599)
+			margin: 15px 0
 	&__geo
 		flex-shrink: 0
+		margin: 25px 0
+		+r(1599)
+			margin: 15px 0
 		+s(geo)
 	&__arc
 		flex-shrink: 0
+		margin: 25px 0
+		+r(1919)
+			margin: 15px 0
+		+r(1599)
+			margin: 5px 0
 		+s(arc)
 		
 .socials
@@ -193,6 +245,8 @@ img
 	padding-bottom: 30px
 	text-align: center
 	text-transform: uppercase
+	+r(1919)
+		padding-bottom: 15px
 	&:before
 		content: ''
 		position: absolute
@@ -209,6 +263,13 @@ img
 		display: block
 		line-height: 1.67
 		+trs
+		+r(1919)
+			font-size: 18px
+			line-height: 1.4
+		+r(1599)
+			font-size: 16px
+		+r(1439)
+			font-size: 15px
 		&:hover
 			color: #1176ae
 		& + &
@@ -219,6 +280,8 @@ img
 		top: auto
 		right: 220px
 		bottom: 40px
+		+r(1919)
+			bottom: 10px
 		li
 			margin: 0
 			width: auto
@@ -234,6 +297,10 @@ img
 			left: auto
 			border-width: 3px
 			+trs
+			+r(1919)
+				border-width: 2px
+				width: 14px
+				height: 14px
 		.active
 			span
 				background: #ffffff
@@ -244,8 +311,6 @@ img
 .navigation
 	overflow: auto
 	display: none
-	padding-top: 50px
-	padding-bottom: 50px
 	flex-direction: column
 	justify-content: space-between
 	align-items: center
@@ -258,12 +323,22 @@ img
 	background-color: rgba(255, 255, 255, .75)
 	transform: translateX(-190px)
 	transition: transform 0.4s
+	+r(1599)
+		transform: translateX(-240px)
 	&.is-active
 		transform: translateX(0)
 	&__logo
 		flex-shrink: 0
+		margin: 25px 0
+		+r(1599)
+			margin: 15px 0
+		+r(1599)
+			width: 170px
 	&__arc
 		flex-shrink: 0
+		margin: 25px 0
+		+r(1599)
+			margin: 15px 0
 		+sfui
 		font-size: 13px
 		+trs
@@ -282,21 +357,34 @@ img
 			+sfui-medium
 	&__phone
 		flex-shrink: 0
+		margin: 25px 0
 		text-align: center
 		+trs
+		+r(1599)
+			margin: 15px 0
 		&:hover
 			color: #1176ae
 		&-text
 			font-size: 24px
 			display: block
+			+r(1919)
+				font-size: 20px
 			& + &
 				+sfui
 				font-size: 18px
+				+r(1919)
+					font-size: 14px
 	&__address
 		flex-shrink: 0
+		margin: 5px 0
 		text-align: center
+		+r(1599)
+			margin: 0
 	&__socials
 		flex-shrink: 0
+		margin: 25px 0
+		+r(1599)
+			margin: 5px 0
 
 
 /* ===================================
@@ -313,6 +401,8 @@ img
 	height: 100%
 	width: 195px
 	border-left: 5px solid #ffffff
+	+r(1439)
+		width: 160px
 	&__item
 		cursor: pointer
 		flex: 1
@@ -323,12 +413,22 @@ img
 		justify-content: center
 		position: relative
 		overflow: hidden
+		+r(1919)
+			padding-left: 20px
+		+r(1439)
+			padding-left: 10px
 		&-text
 			margin: 10px 0
 			position: relative
 			z-index: 3
 			color: #ffffff
 			width: 100%
+			+r(1919)
+				margin: 5px 0
+				font-size: 18px
+			+r(1439)
+				margin: 0
+				font-size: 16px
 		&-icon
 			position: relative
 			z-index: 3
@@ -337,6 +437,10 @@ img
 			transition: all 0.4s
 		&:hover &-icon
 			transform: translateX(55px)
+			+r(1919)
+				transform: translateX(65px)
+			+r(1439)
+				transform: translateX(55px)
 		&:before
 			pointer-events: none
 			content: ''
@@ -453,6 +557,8 @@ img
 	background-size: cover
 	transition: all 1s cubic-bezier(.55,.085,0,.99)
 	transition-delay: 0.1s
+	+r(1439)
+		width: calc(100% - 160px)
 	&_1
 		background-image: url(../img/bg/section-1.jpg)
 	&_2
@@ -498,6 +604,10 @@ img
 		background-color: #ffffff
 		+vertical
 		+trs
+		+r(1919)
+			width: 64px
+		+r(1439)
+			width: 48px
 		&:hover
 			background-color: #cccccc
 		.icon
@@ -513,6 +623,10 @@ img
 		background-color: #ffffff
 		+vertical
 		+trs
+		+r(1919)
+			width: 64px
+		+r(1439)
+			width: 48px
 		&:hover
 			background-color: #cccccc
 		.icon
@@ -526,9 +640,17 @@ img
 		flex-direction: row
 		flex-wrap: wrap
 		background-color: rgba(0, 0, 0, .2)
+		+r(1919)
+			width: 510px
+		+r(1439)
+			width: 450px
 	&__slider
 		width: 570px
 		height: 100%
+		+r(1919)
+			width: 510px
+		+r(1439)
+			width: 450px
 	&__block
 		cursor: pointer
 		position: relative
@@ -541,6 +663,8 @@ img
 		border-top: 1px solid rgba(0, 0, 0, .4)
 		&:last-child
 			background: #3876ae
+			+r(1919)
+				font-size: 18px
 		&:nth-child(3) ~ &
 			border-bottom: 1px solid rgba(0, 0, 0, .4)
 		&:nth-child(3) ~ &:last-child
@@ -573,8 +697,19 @@ img
 			height: 100%
 			padding-top: 35%
 			transition: all 0.4s
+			+r(1919)
+				padding-top: 25%
 		&-title
 			font-size: 27px
+			+r(1919)
+				font-size: 22px
+			+r(1439)
+				font-size: 18px
+		&-price
+			+r(1919)
+				font-size: 18px
+			+r(1439)
+				font-size: 14px
 		&-desc
 			position: absolute
 			z-index: 3
@@ -586,7 +721,12 @@ img
 			top: 50%
 			transform: translateY(0)
 			left: 15px
+			right: 15px
 			transition: all 0.4s
+			+r(1919)
+				font-size: 18px
+			+r(1439)
+				font-size: 15px
 		&:hover &-in
 			opacity: 0
 			&:last-child
@@ -619,21 +759,33 @@ img
 		background-color: rgba(255, 255, 255, .75)
 		border: 1px solid rgba(0, 0, 0, .1)
 		border-right: none
+		+r(1919)
+			padding-right: 30px
+			padding-top: 20px
+			width: 420px
 		&-title
 			font-size: 84px
 			text-transform: uppercase
+			+r(1919)
+				font-size: 48px
 			&_sm
 				font-size: 44px
+				+r(1919)
+					font-size: 27px
 		&-text
 			margin-top: 10px
 			font-size: 45px
+			+r(1919)
+				font-size: 32px
 			&_sm
 				margin-top: 5px
 				font-size: 42px
+				+r(1919)
+					font-size: 24px
 		&-text + &-title
 			margin-top: 50px
 	&__sub
-		width: 670px
+		width: 570px
 		height: 50%
 		padding-top: 35px
 		padding-right: 50px
@@ -643,10 +795,19 @@ img
 		color: #ffffff
 		text-align: right
 		background-color: rgba(0, 0, 0, .5)
+		+r(1919)
+			width: 420px
+			padding-top: 20px
+			padding-right: 30px
+			font-size: 22px
 		&-text
 			&-sm
 				+sfui-medium
 				font-size: 21px
+				+r(1919)
+					font-size: 18px
+				+r(1439)
+					font-size: 16px
 		
 		
 /* ===================================
@@ -673,6 +834,10 @@ img
 	border: 0
 	overflow: visible
 	transition: all 0.4s
+	+r(1919)
+		padding: 15px
+	+r(1599)
+		left: 140px
 	&:hover
 		background-color: rgba(255, 255, 255, .75)
 	&__box
@@ -711,6 +876,8 @@ img
 			bottom: -12px
 	&.is-active
 		transform: translateX(190px)
+		+r(1599)
+			transform: translateX(240px)
 	&.is-active &__inner
 		background-color: #808080
 	&.is-active &__inner:before,
