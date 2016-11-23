@@ -150,12 +150,16 @@ $(document).ready(function () {
 	(function () {
 		var bgBtn = $('.js-bg'),
 			delay = 300,
-			setTimeoutConst;
+			setTimeoutConst,
+			preloadWrapper = $('.js-preload-image');
 
 		bgBtn.on('mouseenter', function () {
-			var _this = $(this);
+			var _this = $(this),
+				sectionStyle = _this.closest('.section').attr('style');
+
+			preloadWrapper.attr('style', ' background-image: url(img/bg/' + _this.data('bg') + '.jpg);');
+
 			setTimeoutConst = setTimeout(function () {
-				var sectionStyle = _this.closest('.section').attr('style');
 				sectionStyle += ' background-image: url(img/bg/' + _this.data('bg') + '.jpg);';
 				_this.closest('.section').attr('style', sectionStyle);
 			}, delay);
