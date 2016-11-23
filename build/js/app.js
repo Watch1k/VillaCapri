@@ -137,13 +137,27 @@ $(document).ready(function () {
 		var hamburger = $('.js-hamburger'),
 			phone = $('.js-phone'),
 			aside = $('.js-aside'),
-			navigation = $('.js-navigation');
+			geoBtn = $('.js-geo'),
+			navigation = $('.js-navigation'),
+			navigation2 = $('.js-navigation2');
 
 		hamburger.on('click', function () {
 			$(this).toggleClass('is-active');
 			phone.toggleClass('is-active');
+			if ($(this).hasClass('is-geo')) {
+				navigation2.fadeToggle().css('display', 'flex').toggleClass('is-active');
+				$(this).removeClass('is-geo');
+			} else {
+				navigation.fadeToggle().css('display', 'flex').toggleClass('is-active');
+			}
 			aside.fadeToggle().css('display', 'flex');
-			navigation.fadeToggle().css('display', 'flex').toggleClass('is-active');
+		});
+
+		geoBtn.on('click', function () {
+			hamburger.toggleClass('is-active').addClass('is-geo');
+			phone.toggleClass('is-active');
+			aside.fadeToggle().css('display', 'flex');
+			navigation2.fadeToggle().css('display', 'flex').toggleClass('is-active');
 		});
 	})();
 
