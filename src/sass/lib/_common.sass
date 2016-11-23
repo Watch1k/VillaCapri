@@ -369,7 +369,10 @@ img
 				width: 100%
 				height: 100%
 				z-index: 1
-				background: #fff url(../img/bg/section-5.jpg) center center no-repeat
+				background-repeat: no-repeat
+				background-position: center
+				background-image: url(../img/bg/section-5-sm.jpg)
+				background-color: #fff
 				background-size: cover
 		&_current
 			overflow: visible
@@ -384,7 +387,10 @@ img
 				width: 100%
 				height: 100%
 				z-index: 1
-				background: #fff url(../img/bg/section-1.jpg) center center no-repeat
+				background-repeat: no-repeat
+				background-position: center
+				background-image: url(../img/bg/section-1-sm.jpg)
+				background-color: #fff
 				background-size: cover
 			&:after
 				content: ''
@@ -410,7 +416,7 @@ img
 				width: 100%
 				height: 100%
 				z-index: 1
-				background: #fff url(../img/bg/section-2.jpg) center center no-repeat
+				background: #fff url(../img/bg/section-2-sm.jpg) center center no-repeat
 				background-size: cover
 		&_last
 			&:after
@@ -424,7 +430,7 @@ img
 				width: 100%
 				height: 100%
 				z-index: 1
-				background: #fff url(../img/bg/section-3.jpg) center center no-repeat
+				background: #fff url(../img/bg/section-3-sm.jpg) center center no-repeat
 				background-size: cover
 
 
@@ -435,22 +441,22 @@ img
 	width: calc(100% - 195px)
 	top: 0
 	left: 0
+	background-repeat: no-repeat
+	background-position: center
+	background-color: #ffffff
+	background-size: cover
+	transition: all 1s cubic-bezier(.55,.085,0,.99)
+	transition-delay: 0.1s
 	&_1
-		background: #fff url(../img/bg/section-1.jpg) center center no-repeat
-		background-size: cover
+		background-image: url(../img/bg/section-1.jpg)
 	&_2
-		background: #fff url(../img/bg/section-2.jpg) center center no-repeat
-		background-size: cover
+		background-image: url(../img/bg/section-2.jpg)
 	&_3
-		background: #fff url(../img/bg/section-3.jpg) center center no-repeat
-		background-size: cover
+		background-image: url(../img/bg/section-3.jpg)
 	&_4
-		background: #fff url(../img/bg/section-4.jpg) center center no-repeat
-		background-size: cover
+		background-image: url(../img/bg/section-4.jpg)
 	&_5
-		background: #fff url(../img/bg/section-5.jpg) center center no-repeat
-		background-size: cover
-		
+		background-image: url(../img/bg/section-5.jpg)
 		
 /* Content
 	----------------------------------- */
@@ -471,17 +477,56 @@ img
 		flex-shrink: 1
 		flex-grow: 0
 		flex-basis: calc(40% + 1px)
+		flex-wrap: wrap
+		justify-content: flex-end
+	.slick-list,
+	.slick-track
+		height: 100% !important
+	.slick-prev
+		position: absolute
+		z-index: 10
+		top: 0
+		right: 100%
+		height: 50%
+		width: 96px
+		background-color: #ffffff
+		+vertical
+		+trs
+		&:hover
+			background-color: #cccccc
+		.icon
+			display: inline-block
+			vertical-align: middle
+	.slick-next
+		position: absolute
+		z-index: 10
+		top: 50%
+		right: 100%
+		height: 50%
+		width: 96px
+		background-color: #ffffff
+		+vertical
+		+trs
+		&:hover
+			background-color: #cccccc
+		.icon
+			display: inline-block
+			vertical-align: middle
 	&__left
 		position: relative
 		width: 570px
-		height: 100%
-		display: flex
+		height: 100% !important
+		display: flex !important
 		flex-direction: row
 		flex-wrap: wrap
+		background-color: rgba(0, 0, 0, .4)
+	&__slider
+		width: 570px
+		height: 100%
 	&__block
 		cursor: pointer
 		position: relative
-		width: 190px
+		width: 33.33333%
 		height: 50%
 		+sfui
 		color: #ffffff
@@ -571,9 +616,31 @@ img
 		&-title
 			font-size: 84px
 			text-transform: uppercase
+			&_sm
+				font-size: 44px
 		&-text
 			margin-top: 10px
 			font-size: 45px
+			&_sm
+				margin-top: 5px
+				font-size: 42px
+		&-text + &-title
+			margin-top: 50px
+	&__sub
+		width: 670px
+		height: 50%
+		padding-top: 35px
+		padding-right: 50px
+		padding-left: 50px
+		+sfui
+		font-size: 25px
+		color: #ffffff
+		text-align: right
+		background-color: rgba(0, 0, 0, .5)
+		&-text
+			&-sm
+				+sfui-medium
+				font-size: 21px
 		
 		
 /* ===================================

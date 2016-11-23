@@ -124,9 +124,12 @@ $(document).ready(function () {
 			animateAnchor: false,
 
 			//events
-			onLeave: function(index, nextIndex, direction){},
-			afterLoad: function(anchorLink, index){},
-			afterRender: function(){}
+			onLeave: function (index, nextIndex, direction) {
+			},
+			afterLoad: function (anchorLink, index) {
+			},
+			afterRender: function () {
+			}
 		});
 	})();
 
@@ -143,5 +146,36 @@ $(document).ready(function () {
 			navigation.fadeToggle().css('display', 'flex').toggleClass('is-active');
 		});
 	})();
+
+	(function () {
+		var bgBtn = $('.js-bg'),
+			delay = 300,
+			setTimeoutConst;
+
+		bgBtn.on('mouseenter', function () {
+			var _this = $(this);
+			setTimeoutConst = setTimeout(function () {
+				var sectionStyle = _this.closest('.section').attr('style');
+				sectionStyle += ' background-image: url(img/bg/' + _this.data('bg') + '.jpg);';
+				_this.closest('.section').attr('style', sectionStyle);
+			}, delay);
+		});
+		bgBtn.on('mouseleave', function () {
+			clearTimeout(setTimeoutConst);
+		});
+	})();
+
+	initSlider($('.js-slider'));
+
+	function initSlider(slider) {
+
+		slider.slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			vertical: true,
+			prevArrow: '<button type="button" class="slick-prev"><div class="icon icon-slick-prev"></div></button>',
+			nextArrow: '<button type="button" class="slick-next"><div class="icon icon-slick-next"></div></button>'
+		});
+	}
 
 });
