@@ -88,7 +88,7 @@ $(document).ready(function () {
 			var _this = $(this),
 				sectionStyle = _this.closest('.section').attr('style');
 
-			preloadWrapper.attr('style', ' background-image: url(img/bg/' + _this.data('bg') + '.jpg);');
+			preloadWrapper.html('<img src="img/bg/' + _this.data('bg') + '.jpg">');
 
 			setTimeoutConst = setTimeout(function () {
 				sectionStyle += ' background-image: url(img/bg/' + _this.data('bg') + '.jpg);';
