@@ -1,5 +1,7 @@
 +font('SFUIText-Regular', 'SFUIText-Regular')
 +font('SFUIText-Medium', 'SFUIText-Medium')
++font('SFUIText-Light', 'SFUIText-Light')
++font('SFUIText-Bold', 'SFUIText-Bold')
 
 // fonts
 $default-fonts: Arial, sans-serif
@@ -7,6 +9,10 @@ $default-fonts: Arial, sans-serif
 	font-family: 'SFUIText-Regular', $default-fonts
 =sfui-medium
 	font-family: 'SFUIText-Medium', $default-fonts
+=sfui-light
+	font-family: 'SFUIText-Light', $default-fonts
+=sfui-bold
+	font-family: 'SFUIText-Bold', $default-fonts
 
 // colors
 // $black: #000
@@ -28,6 +34,10 @@ body
 	font-size: 21px
 	color: #333
 	line-height: 1.2
+	overflow: auto
+	
+.body-main
+	overflow: hidden
 	
 .wrapper
 	position: absolute
@@ -38,6 +48,12 @@ body
 	height: 100%
 	width: 100%
 	z-index: 1
+	
+.wrapper-default
+	position: relative
+	overflow: hidden
+	margin: 0 auto
+	min-height: 100%
 
 .container
 	+pie-clearfix
@@ -106,6 +122,8 @@ img
 	flex-direction: row
 	justify-content: space-around
 	align-items: center
+	&_contact
+		right: 20px
 	+r(1919)
 		padding-top: 20px
 		.icon-phone
@@ -545,30 +563,47 @@ img
 	width: calc(100% - 195px)
 	top: 0
 	left: 0
-	background-repeat: no-repeat
-	background-position: center
-	background-color: #ffffff
-	background-size: cover
+	background-attachment: fixed
 	transition: all 1s cubic-bezier(.55,.085,0,.99)
-	transition-delay: 0.1s
 	+r(1439)
 		width: calc(100% - 160px)
-	&_1
+	&__bg
+		position: absolute
+		z-index: 1
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		width: 100%
+		height: 100%
+		pointer-events: none
+		background-repeat: no-repeat
+		background-position: center
+		background-color: #ffffff
+		background-size: cover
+		& + &
+			display: none
+			z-index: 2
+	&_1 &__bg
 		background-image: url(../img/bg/section-1.jpg)
-	&_2
+	&_2 &__bg
 		background-image: url(../img/bg/section-2.jpg)
-	&_3
+	&_3 &__bg
 		background-image: url(../img/bg/section-3.jpg)
-	&_4
+	&_4 &__bg
 		background-image: url(../img/bg/section-4.jpg)
-	&_5
+	&_5 &__bg
 		background-image: url(../img/bg/section-5.jpg)
 		
+.pp-tableCell
+	position: relative
+	z-index: 2
+	
 /* Content
 	----------------------------------- */
 .content
 	position: absolute
-	z-index: 1
+	z-index: 3
 	right: 0
 	top: 0
 	bottom: 0
@@ -597,7 +632,7 @@ img
 		right: 100%
 		height: 50%
 		width: 96px
-		background-color: #ffffff
+		background-color: rgba(255, 255, 255, .75)
 		+vertical
 		+trs
 		+r(1919)
@@ -605,7 +640,7 @@ img
 		+r(1439)
 			width: 48px
 		&:hover
-			background-color: #cccccc
+			background-color: #ffffff
 		.icon
 			display: inline-block
 			vertical-align: middle
@@ -616,7 +651,7 @@ img
 		right: 100%
 		height: 50%
 		width: 96px
-		background-color: #ffffff
+		background-color: rgba(255, 255, 255, .75)
 		+vertical
 		+trs
 		+r(1919)
@@ -624,14 +659,14 @@ img
 		+r(1439)
 			width: 48px
 		&:hover
-			background-color: #cccccc
+			background-color: #ffffff
 		.icon
 			display: inline-block
 			vertical-align: middle
 	&__left
 		position: relative
 		width: 570px
-		height: 100% !important
+		height: 40vh !important
 		display: flex !important
 		flex-direction: row
 		flex-wrap: wrap
@@ -642,7 +677,7 @@ img
 			width: 450px
 	&__slider
 		width: 570px
-		height: 100%
+		height: 40vh
 		+r(1919)
 			width: 510px
 		+r(1439)
@@ -749,7 +784,6 @@ img
 		width: 670px
 		padding-top: 30px
 		padding-right: 50px
-		height: 100%
 		+sfui
 		text-align: right
 		background-color: rgba(255, 255, 255, .75)
@@ -782,7 +816,7 @@ img
 			margin-top: 50px
 	&__row-sub
 		flex-basis: 100%
-		height: 50%
+		height: 20vh
 		display: flex
 		justify-content: flex-end
 	&__sub
@@ -809,7 +843,271 @@ img
 					font-size: 18px
 				+r(1439)
 					font-size: 16px
+					
+/* ===================================
+	 Page
+	 =================================== */
+.page
+	position: relative
+	padding-left: 190px
+	padding-top: 70px
+	+r(1919)
+		padding-top: 60px
+	+r(1599)
+		padding-left: 140px
+	&_full
+		width: 100%
+		height: 100%
+	&__scroll
+		height: 100%
+		overflow: auto
+	&:before
+		position: absolute
+		content: ''
+		z-index: 1
+		pointer-events: none
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: url(../img/bg/section-1.jpg) center center no-repeat
+		background-size: cover
+		opacity: 0.3
+	&__inner
+		position: relative
+		z-index: 2
+	&__dark
+		position: relative
+		z-index: 2
+		padding: 30px
+		color: #ffffff
+		background-color: rgba(#000000, .5)
+	&__foot-text
+		margin-top: 5px
+		+sfui-light
+		font-size: 20px
+		+r(1919)
+			font-size: 18px
+		&-phone
+			+sfui-bold
+			+trs
+			&:hover
+				color: lighten(#1176ae,20)
+		&-mail
+			text-decoration: underline
+			+trs
+			&:hover
+				text-decoration: underline
+				color: lighten(#1176ae,20)
 		
+		
+/* Contact
+	----------------------------------- */
+.contact
+	height: 100%
+	background-color: rgba(255, 255, 255, .5)
+	display: flex
+	align-content: stretch
+	&__col
+		display: flex
+		flex-basis: 50%
+		flex-direction: column
+		&:nth-child(1)
+			padding-top: 85px
+			padding-left: 8.5%
+			padding-bottom: 140px
+			justify-content: space-between
+			+r(1919)
+				padding-left: 7%
+				padding-top: 50px
+				padding-bottom: 50px
+			+r(1439)
+				padding-top: 20px
+				padding-bottom: 40px
+		&-top,
+		&-bottom
+			flex: 1
+		&-top
+			background: url(../img/bg/section-1.jpg) center center no-repeat
+			background-size: cover
+	&__item
+		flex-shrink: 0
+	&__label
+		margin-bottom: 5px
+		font-size: 30px
+		+sfui
+		+r(1919)
+			font-size: 24px
+		+r(1439)
+			font-size: 20px
+	&__text
+		+r(1919)
+		font-size: 18px
+		+r(1439)
+			font-size: 16px
+		&_phone
+			+trs
+			&:hover
+				color: #0075b0
+		&_mail
+			color: #0075b0
+			text-decoration: underline
+			+trs
+			&:hover
+				color: darken(#0075b0,10)
+				text-decoration: underline
+	&__btn
+		display: inline-block
+		padding: 16px 20px
+		background-color: #3876ad
+		font-size: 16px
+		color: #ffffff
+		text-transform: uppercase
+		+trs
+		+r(1919)
+			padding: 10px 15px
+		&:hover
+			background-color: darken(#3876ad,10)
+	&__socials
+		justify-content: flex-start
+	&__req
+		color: #0075b0
+		+trs
+		text-decoration: underline
+		&:hover
+			color: darken(#0075b0,10)
+			text-decoration: underline
+			
+.title-lg
+	font-size: 84px
+	+sfui
+	color: #333333
+	+r(1919)
+		font-size: 64px
+	+r(1599)
+		font-size: 54px
+		
+.subtitle-lg
+	font-size: 30px
+	+sfui
+	color: #333333
+	&_white
+		color: #ffffff
+	+r(1919)
+		font-size: 27px
+	+r(1599)
+		font-size: 24px
+		
+.text-link
+	font-size: 16px
+	color: #0075b0
+	text-decoration: underline
+	+trs
+	&:hover
+		color: darken(#0075b0,10)
+		text-decoration: underline
+	
+/* LC
+	----------------------------------- */
+.lc
+	background: rgba(255, 255, 255, 0.5)
+	padding: 20px 8.5%
+	&__table-user
+		margin-top: 20px
+	&__row
+		margin-top: 50px
+		+pie-clearfix
+	+r(1919)
+		padding-top: 10px
+		padding-left: 7%
+		padding-bottom: 10px
+	&__subtitle-lg
+		margin-top: 10px
+		&_left
+			display: inline
+	&__subtitle-lg + &__text-link
+		margin-left: 15px
+	&__subtitle-lg + &__text-link + &__text-link
+		margin-left: 15px
+	&__table
+		margin-top: 10px
+	&__table-user
+		max-width: 1000px
+		
+.table
+	font-size: 20px
+	text-align: left
+	+r(1919)
+		font-size: 18px
+	&__th
+		padding-top: 10px
+		padding-bottom: 10px
+		color: #0075b0
+	&__td
+		padding-top: 10px
+		padding-bottom: 10px
+		vertical-align: middle
+		border-top: 1px solid rgba(#000, .05)
+		&:nth-child(1)
+			width: 40%
+		&:nth-child(2)
+			width: 15%
+		&:nth-child(3)
+			width: 15%
+		&:nth-child(4)
+			width: 15%
+		&:nth-child(5)
+			width: 15%
+		&_number
+			text-indent: 50px
+	&__img
+		margin-right: 20px
+		float: left
+		width: 150px
+		max-width: none
+	&__content
+		overflow: hidden
+		padding-top: 10px
+	&__btn
+		margin-top: 10px
+		display: inline-block
+		padding: 16px 33px
+		background-color: #3876ad
+		font-size: 16px
+		color: #ffffff
+		text-transform: uppercase
+		+trs
+		+r(1919)
+			padding: 8px 25px
+		&:hover
+			background-color: darken(#3876ad,10)
+	&__text
+		&_width
+			padding-right: 30%
+			font-size: 16px
+			+r(1919)
+				padding-right: 15%
+			+r(1439)
+				padding-right: 10%
+			
+.table-user
+	font-size: 20px
+	line-height: 2
+	text-transform: uppercase
+	+r(1919)
+		font-size: 18px
+	&__td
+		&:nth-child(2n+1)
+			+sfui-light
+		&:nth-child(2n)
+	&__doc
+		&-row
+			font-size: 16px
+			line-height: 1.5
+		&-number
+			line-height: 1
+	
+			
 		
 /* ===================================
 	 Other Styles
@@ -819,7 +1117,7 @@ img
 	left: 190px
 	top: 0
 	z-index: 104
-	padding: 20px
+	padding: 13px
 	pointer-events: auto
 	-webkit-tap-highlight-color: transparent
 	cursor: pointer
@@ -831,26 +1129,26 @@ img
 	font: inherit
 	color: inherit
 	text-transform: none
-	background-color: #fff
+	background-color: rgba(255, 255, 255, .75)
 	border: 0
 	overflow: visible
 	transition: all 0.4s
 	+r(1919)
-		padding: 15px
+		padding: 10px
 	+r(1599)
 		left: 140px
 	&:hover
-		background-color: rgba(255, 255, 255, .75)
+		background-color: #fff
 	&__box
-		width: 30px
-		height: 30px
+		width: 25px
+		height: 25px
 		display: block
 		position: relative
 	&__inner
 		display: block
-		top: 12px
-		width: 30px
-		height: 6px
+		top: 10px
+		width: 25px
+		height: 4px
 		background-color: #808080
 		position: absolute
 		transition-property: -webkit-transform
@@ -859,8 +1157,8 @@ img
 		transition-duration: 0.15s
 		transition-timing-function: ease
 		&::before, &::after
-			width: 30px
-			height: 6px
+			width: 25px
+			height: 4px
 			background-color: #808080
 			position: absolute
 			transition-property: -webkit-transform
@@ -872,9 +1170,9 @@ img
 			content: ""
 			display: block
 		&::before
-			top: -12px
+			top: -9px
 		&::after
-			bottom: -12px
+			bottom: -9px
 	&.is-active
 		transform: translateX(190px)
 		+r(1599)

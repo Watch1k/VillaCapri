@@ -14,11 +14,11 @@ html
     block css
       link(rel="stylesheet" media="all" href="css/screen.css")
     <!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
-  body
+  block body
+  body(class= bodyClass)
     .preload-image.js-preload-image
     include _header
-    .wrapper.js-wrapper
-      block content
+    block content
     include _right
     block js
       script(src="js/app.js")

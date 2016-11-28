@@ -1,0 +1,54 @@
+extend includes/_layout
+block title
+	title Contact
+block right
+block header
+	- var headerClass = 'header_contact'
+block content
+	.page.page_full.page_contact
+		.page__inner.contact
+			.contact__col
+				.contact__item
+					.contact__title-lg.title-lg КОНТАКТЫ
+				.contact__item
+					.contact__label АДРЕС
+					.contact__text Крым, г. Щелкино, п.г.т. Нептун <br>Координаты 45.419816, 35.799912
+				.contact__item
+					.contact__label ТЕЛЕФОН
+					a.contact__text.contact__text_phone(href='tel:+79879201792') +7 987 92 017 92
+				.contact__item
+					.contact__label ЭЛ. ПОЧТА
+					a.contact__text.contact__text_mail(href='mailto:villacapri@mail.ru') villacapri@mail.ru
+				.contact__item
+					a.contact__btn(href='#') написать нам
+				.contact__item.contact__socials.socials.socials_line
+					a.socials__link(href='#' title='vkontakte')
+					a.socials__link(href='#' title='odnoklassniki')
+					a.socials__link(href='#' title='facebook')
+					a.socials__link(href='#' title='instagram')
+					a.socials__link(href='#' title='periscope')
+			.contact__col
+				.contact__col-top
+				.contact__col-bottom#map
+block js
+	script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_5P4IIFsySgMjMwG2dtuJiMUcg5X6gg0")
+	script.
+		google.maps.event.addDomListener(window, 'load', initMap());
+		function initMap() {
+			var myLatLng = {lat: 45.419816, lng: 35.799912};
+			var mapProp = {
+				center: myLatLng,
+				zoom: 14,
+				scrollwheel: false,
+				draggable: true,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			var map = new google.maps.Map(document.getElementById("map"), mapProp);
+			var marker = new google.maps.Marker({
+				position: myLatLng,
+				map: map,
+				icon: 'img/map-marker.png',
+				title: 'Villa Capri'
+			});
+		}
+	script(src="js/app.js")

@@ -1,0 +1,81 @@
+extend includes/_layout
+block title
+	title LC
+block right
+block header
+	- var headerClass = 'header_contact'
+block content
+	.page.page_lc.page_full
+		.page__scroll
+			.page__inner.lc
+				.lc__title-lg.title-lg ЛИЧНЫЙ КАБИНЕТ
+				.lc__subtitle-lg.subtitle-lg ПОСЛЕДНИЕ БРОНИРОВАНИЯ
+				table.lc__table.table
+					tr.table__tr
+						th.table__th НОМЕР
+						th.table__th ЗАЕЗД
+						th.table__th ВЫЕЗД
+						th.table__th КОЛ-ВО ЧЕЛ
+						th.table__th
+					tr.table__tr
+						td.table__td
+							.table__row
+								img.table__img(src='img/bg/section-1.jpg' alt='image')
+								.table__content
+									.table__text LUXE 10
+									.table__text.table__text_width С двойной кроватью, видом на море и ярким дизайном.
+						td.table__td 1.05.17
+						td.table__td 8.05.17
+						td.table__td.table__td_number 2
+						td.table__td.text-center ОПЛАЧЕНО
+					tr.table__tr
+						td.table__td
+							img.table__img(src='img/bg/section-1.jpg' alt='image')
+							.table__content
+								.table__text DELUXE 10
+								.table__text.table__text_width С двойной кроватью, видом на море и ярким дизайном.
+						td.table__td 11.07.17
+						td.table__td 19.07.17
+						td.table__td.table__td_number 2
+						td.table__td.text-center НЕ ОПЛАЧЕНО
+							.text__row
+								button.table__btn(type='button') ОПЛАТИТЬ
+				.text-center
+					a.text-link(href='#') Показать следующие
+				.lc__row
+					.lc__subtitle-lg.lc__subtitle-lg_left.subtitle-lg ПОСЛЕДНИЕ БРОНИРОВАНИЯ
+					a.lc__text-link.text-link(href='#') Показать следующие
+					a.lc__text-link.text-link(href='#') Показать следующие
+				table.lc__table-user.table-user
+					tr.table-user__tr
+						td.table-user__td Имя:
+						td.table-user__td ИВАН
+						td.table-user__td Телефон:
+						td.table-user__td +7 927 123 45 67
+					tr.table-user__tr
+						td.table-user__td Фамилия:
+						td.table-user__td ИВАНОВИЧ
+						td.table-user__td Почта:
+						td.table-user__td ivanov@mail.ru
+					tr.table-user__tr
+						td.table-user__td Отчество:
+						td.table-user__td ИВАНОВ
+						td.table-user__td
+						td.table-user__td
+					tr.table-user__tr
+						td.table-user__td Паспотртные данные:
+						td.table-user__td
+							.table-user__doc-number 3601 020304
+							.table-user__doc-row
+								span.table-user__doc-date выдан тогда-то
+								| &nbsp;
+								span.table-user__doc-whom кем-то
+						td.table-user__td
+						td.table-user__td
+			.page__dark
+				.text-center
+					.subtitle-lg.subtitle-lg_white ЕСТЬ ВОПРОСЫ?
+					.page__foot-text ЗАДАЙТЕ ИХ НАШЕМУ АДМИНИСТРАТОРУ ПО ТЕЛ&nbsp;
+						a.page__foot-text-phone(href='#') 8-800-2000-600
+						| &nbsp;ИЛИ&nbsp;
+						a.page__foot-text-mail(href='#') НАПИШИТЕ НАМ ПИСЬМО

@@ -4,7 +4,20 @@ $(document).ready(function () {
 	//for IE9
 	svg4everybody();
 
-	initSlider($('.js-slider'));
+	if ($('.js-slider').length) {
+		initSlider($('.js-slider'));
+	}
+
+	function initSlider(slider) {
+
+		slider.slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			vertical: true,
+			prevArrow: '<button type="button" class="slick-prev"><div class="icon icon-slick-prev"></div></button>',
+			nextArrow: '<button type="button" class="slick-next"><div class="icon icon-slick-next"></div></button>'
+		});
+	}
 
 	// Clear placeholder
 	(function () {
@@ -54,6 +67,11 @@ $(document).ready(function () {
 			setTimeoutConst,
 			preloadWrapper = $('.js-preload-image');
 
+		if (bgBtn.length) {
+			$('.section').append('<div class="section__bg"></div>');
+			$('.section').append('<div class="section__bg"></div>');
+		}
+
 		bgBtn.on('mouseenter', function () {
 			var _this = $(this),
 				sectionStyle = _this.closest('.section').attr('style');
@@ -61,8 +79,11 @@ $(document).ready(function () {
 			preloadWrapper.html('<img src="img/bg/' + _this.data('bg') + '.jpg">');
 
 			setTimeoutConst = setTimeout(function () {
-				sectionStyle += ' background-image: url(img/bg/' + _this.data('bg') + '.jpg);';
-				_this.closest('.section').attr('style', sectionStyle);
+				sectionStyle = 'background-image: url(img/bg/' + _this.data('bg') + '.jpg);';
+				_this.closest('.section').find('.section__bg').eq(1).attr('style', sectionStyle).fadeIn(function () {
+					$(this).prev().attr('style', sectionStyle);
+					$(this).hide().prev().show();
+				});
 			}, delay);
 		});
 		bgBtn.on('mouseleave', function () {
@@ -71,169 +92,160 @@ $(document).ready(function () {
 	})();
 
 	//control
-	var control = $('.js-control'),
-		prevBtn,
-		nextBtn,
-		currentBtn,
-		nextDoubleBtn,
-		hiddenBtn,
-		controlInd = false;
+	if ($('.js-control').length) {
+		var control = $('.js-control'),
+			prevBtn,
+			nextBtn,
+			currentBtn,
+			nextDoubleBtn,
+			hiddenBtn,
+			controlInd = false;
 
-	refreshButtons();
-	initNextBtn();
-	initNextDoubleBtn();
-	initPrevBtn();
-
-	function refreshButtons() {
-		prevBtn = control.find($('.js-control-prev'));
-		nextBtn = control.find($('.js-control-next'));
-		currentBtn = control.find($('.js-control-current'));
-		nextDoubleBtn = control.find($('.js-control-next-double'));
-		hiddenBtn = control.find($('.js-control-hidden'));
-	}
-
-	function initNextBtn() {
 		refreshButtons();
-
-		nextBtn.on('click', function (e) {
-			e.preventDefault();
-			controlInd = true;
-			$.fn.pagepiling.moveSectionDown();
-			slideNext(nextBtn);
-		});
-	}
-
-	function slideNext(elNext) {
-		prevBtn.unbind();
-		nextDoubleBtn.unbind();
-		nextBtn.unbind();
-		var _this = elNext,
-			_thisClass = _this.attr('class');
-
-		_this.attr('class', currentBtn.attr('class'));
-		currentBtn.attr('class', prevBtn.attr('class'));
-		prevBtn.attr('class', hiddenBtn.attr('class'));
-		hiddenBtn.attr('class', nextDoubleBtn.attr('class'));
-		nextDoubleBtn.attr('class', _thisClass);
-
 		initNextBtn();
 		initNextDoubleBtn();
 		initPrevBtn();
-	}
 
-	function initPrevBtn() {
-		refreshButtons();
+		function refreshButtons() {
+			prevBtn = control.find($('.js-control-prev'));
+			nextBtn = control.find($('.js-control-next'));
+			currentBtn = control.find($('.js-control-current'));
+			nextDoubleBtn = control.find($('.js-control-next-double'));
+			hiddenBtn = control.find($('.js-control-hidden'));
+		}
 
-		prevBtn.on('click', function (e) {
-			e.preventDefault();
-			controlInd = true;
-			$.fn.pagepiling.moveSectionUp();
-			slidePrev(prevBtn);
-		});
-	}
+		function initNextBtn() {
+			refreshButtons();
 
-	function slidePrev(elPrev) {
-		prevBtn.unbind();
-		nextDoubleBtn.unbind();
-		nextBtn.unbind();
-		var _this = elPrev,
-			_thisClass = _this.attr('class');
+			nextBtn.on('click', function (e) {
+				e.preventDefault();
+				controlInd = true;
+				$.fn.pagepiling.moveSectionDown();
+				slideNext(nextBtn);
+			});
+		}
 
-		_this.attr('class', currentBtn.attr('class'));
-		currentBtn.attr('class', nextBtn.attr('class'));
-		nextBtn.attr('class', nextDoubleBtn.attr('class'));
-		nextDoubleBtn.attr('class', hiddenBtn.attr('class'));
-		hiddenBtn.attr('class', _thisClass);
-
-		initNextBtn();
-		initNextDoubleBtn();
-		initPrevBtn();
-	}
-
-	function initNextDoubleBtn() {
-		refreshButtons();
-
-		nextDoubleBtn.on('click', function (e) {
+		function slideNext(elNext) {
 			prevBtn.unbind();
+			nextDoubleBtn.unbind();
 			nextBtn.unbind();
-			$(this).unbind();
-			e.preventDefault();
-			controlInd = true;
-			$.fn.pagepiling.moveSectionDown();
-			controlInd = true;
-			$.fn.pagepiling.moveSectionDown();
-			var _this = $(this),
+			var _this = elNext,
 				_thisClass = _this.attr('class');
 
 			_this.attr('class', currentBtn.attr('class'));
-			currentBtn.attr('class', hiddenBtn.attr('class'));
-			hiddenBtn.attr('class', nextBtn.attr('class'));
-			nextBtn.attr('class', prevBtn.attr('class'));
-			prevBtn.attr('class', _thisClass);
+			currentBtn.attr('class', prevBtn.attr('class'));
+			prevBtn.attr('class', hiddenBtn.attr('class'));
+			hiddenBtn.attr('class', nextDoubleBtn.attr('class'));
+			nextDoubleBtn.attr('class', _thisClass);
 
 			initNextBtn();
 			initNextDoubleBtn();
 			initPrevBtn();
-		});
-	}
+		}
 
-	function initSlider(slider) {
+		function initPrevBtn() {
+			refreshButtons();
 
-		slider.slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			vertical: true,
-			prevArrow: '<button type="button" class="slick-prev"><div class="icon icon-slick-prev"></div></button>',
-			nextArrow: '<button type="button" class="slick-next"><div class="icon icon-slick-next"></div></button>'
-		});
-	}
+			prevBtn.on('click', function (e) {
+				e.preventDefault();
+				controlInd = true;
+				$.fn.pagepiling.moveSectionUp();
+				slidePrev(prevBtn);
+			});
+		}
 
-	//fullpage
-	(function () {
-		$('.js-wrapper').pagepiling({
-			menu: null,
-			direction: 'vertical',
-			verticalCentered: true,
-			sectionsColor: [],
-			anchors: [],
-			scrollingSpeed: 700,
-			easing: 'swing',
-			loopBottom: true,
-			loopTop: true,
-			css3: true,
-			navigation: {
-				'textColor': '#000',
-				'bulletsColor': '#fff',
-				'position': 'right'
-			},
-			normalScrollElements: null,
-			normalScrollElementTouchThreshold: 20,
-			touchSensitivity: 20,
-			keyboardScrolling: true,
-			sectionSelector: '.section',
-			animateAnchor: false,
+		function slidePrev(elPrev) {
+			prevBtn.unbind();
+			nextDoubleBtn.unbind();
+			nextBtn.unbind();
+			var _this = elPrev,
+				_thisClass = _this.attr('class');
 
-			//events
-			onLeave: function (index, nextIndex, direction) {
-				if (((nextIndex > index) || (index == 5 && nextIndex == 1)) && !((index == 1) && (nextIndex == 5))) {
-					if (!controlInd) {
-						slideNext(nextBtn);
+			_this.attr('class', currentBtn.attr('class'));
+			currentBtn.attr('class', nextBtn.attr('class'));
+			nextBtn.attr('class', nextDoubleBtn.attr('class'));
+			nextDoubleBtn.attr('class', hiddenBtn.attr('class'));
+			hiddenBtn.attr('class', _thisClass);
+
+			initNextBtn();
+			initNextDoubleBtn();
+			initPrevBtn();
+		}
+
+		function initNextDoubleBtn() {
+			refreshButtons();
+
+			nextDoubleBtn.on('click', function (e) {
+				prevBtn.unbind();
+				nextBtn.unbind();
+				$(this).unbind();
+				e.preventDefault();
+				controlInd = true;
+				$.fn.pagepiling.moveSectionDown();
+				controlInd = true;
+				$.fn.pagepiling.moveSectionDown();
+				var _this = $(this),
+					_thisClass = _this.attr('class');
+
+				_this.attr('class', currentBtn.attr('class'));
+				currentBtn.attr('class', hiddenBtn.attr('class'));
+				hiddenBtn.attr('class', nextBtn.attr('class'));
+				nextBtn.attr('class', prevBtn.attr('class'));
+				prevBtn.attr('class', _thisClass);
+
+				initNextBtn();
+				initNextDoubleBtn();
+				initPrevBtn();
+			});
+		}
+
+		//fullpage
+		(function () {
+			$('.js-wrapper').pagepiling({
+				menu: null,
+				direction: 'vertical',
+				verticalCentered: true,
+				sectionsColor: [],
+				anchors: [],
+				scrollingSpeed: 700,
+				easing: 'swing',
+				loopBottom: true,
+				loopTop: true,
+				css3: true,
+				navigation: {
+					'textColor': '#000',
+					'bulletsColor': '#fff',
+					'position': 'right'
+				},
+				normalScrollElements: null,
+				normalScrollElementTouchThreshold: 20,
+				touchSensitivity: 20,
+				keyboardScrolling: true,
+				sectionSelector: '.section',
+				animateAnchor: false,
+
+				//events
+				onLeave: function (index, nextIndex, direction) {
+					if (((nextIndex > index) || (index == 5 && nextIndex == 1)) && !((index == 1) && (nextIndex == 5))) {
+						if (!controlInd) {
+							slideNext(nextBtn);
+						} else {
+							controlInd = false;
+						}
 					} else {
-						controlInd = false;
+						if (!controlInd) {
+							slidePrev(prevBtn);
+						} else {
+							controlInd = false;
+						}
 					}
-				} else {
-					if (!controlInd) {
-						slidePrev(prevBtn);
-					} else {
-						controlInd = false;
-					}
+				},
+				afterLoad: function (anchorLink, index) {
+				},
+				afterRender: function () {
 				}
-			},
-			afterLoad: function (anchorLink, index) {
-			},
-			afterRender: function () {
-			}
-		});
-	})();
+			});
+		})();
+	}
 
 });
