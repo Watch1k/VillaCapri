@@ -843,6 +843,24 @@ img
 					font-size: 18px
 				+r(1439)
 					font-size: 16px
+	&__desc
+		width: 380px
+		margin-right: 13px
+		&-look
+			display: block
+			margin-bottom: 30px
+			padding: 20px 0
+			font-size: 21px
+			color: #ffffff
+			text-align: center
+			background-color: #3876ae
+			
+/* ===================================
+	 Form
+	 =================================== */
+.form
+	
+	
 					
 /* ===================================
 	 Page
@@ -855,12 +873,6 @@ img
 		padding-top: 60px
 	+r(1599)
 		padding-left: 140px
-	&_full
-		width: 100%
-		height: 100%
-	&__scroll
-		height: 100%
-		overflow: auto
 	&:before
 		position: absolute
 		content: ''
@@ -873,9 +885,46 @@ img
 		background: url(../img/bg/section-1.jpg) center center no-repeat
 		background-size: cover
 		opacity: 0.3
+	&_full
+		width: 100%
+		height: 100%
+	&_gallery
+		padding: 0
+		width: calc(100% - 195px)
+		+r(1439)
+			width: calc(100% - 160px)
+		&:before
+			display: none
+			content: none
+	&_room
+		padding: 0
+		width: calc(100% - 195px)
+		+r(1439)
+			width: calc(100% - 160px)
+		&:before
+			display: none
+			content: none
+	&__scroll
+		height: 100%
+		overflow: auto
 	&__inner
 		position: relative
 		z-index: 2
+		transition: all 0.4s
+	&.is-move &__inner
+		padding-left: 380px
+		+r(1599)
+			padding-left: 300px
+	&_gallery &__inner
+		padding-top: 70px
+		padding-left: 190px
+		+r(1919)
+			padding-top: 60px
+		+r(1599)
+			padding-left: 140px
+	&__gallery
+		width: 100%
+		height: 100%
 	&__dark
 		position: relative
 		z-index: 2
@@ -900,6 +949,350 @@ img
 				text-decoration: underline
 				color: lighten(#1176ae,20)
 		
+/* Gallery
+	----------------------------------- */
+.gallery
+	position: relative
+	&__inner
+		position: relative
+		z-index: 1
+	&__bg
+		display: none
+		position: absolute
+		z-index: 3
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: center center
+		&:before
+			content: ''
+			position: absolute
+			z-index: 1
+			top: 0
+			left: 235px
+			right: 0
+			height: 60px
+			background-color: rgba(255, 255, 255, .7)
+			transition: left 0.4s
+			+r(1599)
+				left: 185px
+		&.is-move
+			&:before
+				left: 425px
+				+r(1599)
+					left: 345px
+		&-btn
+			z-index: 2
+			margin-left: 75px
+			+vcenter
+			+s(zoom-out)
+			cursor: pointer
+	&__screen
+		position: absolute
+		padding-left: 190px
+		padding-top: 60px
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		z-index: 1
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		text-align: center
+		background: url(../img/bg/gallery-bg.jpg) center center no-repeat
+		background-size: cover
+		transition: padding 0.4s
+		+r(1599)
+			padding-left: 140px
+	&.is-move &__screen
+		padding-left: 380px
+		+r(1599)
+			padding-left: 300px
+	&__title-main
+		position: relative
+		margin-bottom: 60px
+		+sfui
+		font-size: 59px
+		text-transform: uppercase
+		+r(1599)
+			font-size: 42px
+		+r(1439)
+			font-size: 36px
+		&:before
+			content: ''
+			position: absolute
+			z-index: 1
+			margin-top: 30px
+			top: 100%
+			left: 50%
+			transform: translateX(-50%)
+			width: 180px
+			height: 2px
+			background-color: #333333
+	&__subtitle-main
+		+sfui
+		max-width: 80%
+		+r(1599)
+			font-size: 18px
+	&__btn
+		margin-top: 75px
+		display: inline-block
+		+s(photo)
+	&__content
+		display: none
+		position: relative
+		z-index: 2
+		width: 100%
+		height: 100%
+		flex-wrap: wrap
+		&.is-active
+			display: flex
+	&__item
+		position: relative
+		display: flex
+		justify-content: center
+		flex-direction: column
+		align-items: center
+		padding-left: 15px
+		padding-right: 15px
+		height: 50%
+		flex: 1 1 25%
+		flex-wrap: wrap
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: center center
+		&:before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			z-index: 1
+			opacity: 0
+			background-color: rgba(255, 255, 255, 0.5)
+			+trs
+		&:hover
+			&:before
+				opacity: 1
+		&_2
+			flex-basis: 50%
+		&-text
+			position: relative
+			margin-bottom: 50px
+			z-index: 2
+			+sfui
+			font-size: 35px
+			text-align: center
+			opacity: 0
+			+trs
+			+r(1919)
+				font-size: 30px
+			+r(1439)
+				font-size: 26px
+	&__zoom-in
+		position: relative
+		z-index: 2
+		display: block
+		+s(zoom)
+		+trs
+		opacity: 0
+	&__item:hover &__item-text,
+	&__item:hover &__zoom-in
+		opacity: 1
+		
+/* Room
+	----------------------------------- */
+.room
+	&__inner
+		width: 100%
+		height: 100%
+	&__bg
+		position: absolute
+		z-index: 1
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-position: center center
+		background-size: cover
+		background-repeat: no-repeat
+		
+/* Room Aside
+	----------------------------------- */
+.room-aside
+	display: flex
+	flex-direction: column
+	position: fixed
+	z-index: 102
+	top: 0
+	right: 0
+	bottom: 0
+	height: 100%
+	width: 195px
+	border-left: 5px solid #ffffff
+	+r(1439)
+		width: 160px
+	&__item
+		cursor: pointer
+		display: flex
+		flex: 1
+		flex-direction: column
+		padding: 0 10px 0 25px
+		justify-content: center
+		align-items: flex-start
+		position: relative
+		overflow: hidden
+		background-size: cover
+		background-position: center center
+		background-repeat: no-repeat
+		+r(1919)
+			padding-left: 20px
+		+r(1439)
+			padding-left: 10px
+		&.is-active
+			flex: 2
+		&:before
+			pointer-events: none
+			content: ''
+			position: absolute
+			z-index: 2
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			width: 100%
+			height: 100%
+			background-color: rgba(0, 0, 0, .5)
+			transition: all 0.4s
+			border-top: 1px solid rgba(255, 255, 255, .4)
+		&:after
+			content: ''
+			pointer-events: none
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			width: 100%
+			height: 100%
+			z-index: 1
+			transition: all 0.4s
+		&:hover:before
+			background-color: rgba(255, 255, 255, .5)
+		&.is-active:before
+			background-color: transparent
+	&__text
+		margin: 10px 0
+		position: relative
+		z-index: 3
+		color: #ffffff
+		+r(1919)
+			margin: 5px 0
+			font-size: 18px
+		+r(1439)
+			margin: 0
+			font-size: 16px
+	&__item:hover &__text
+		color: #333333
+	&__item.is-active &__text
+		display: none
+		color: #ffffff
+	&__more
+		position: absolute
+		z-index: 2
+		bottom: 0
+		left: 0
+		right: 0
+		width: 100%
+		background-color: #3876ad
+		+sfui
+		font-size: 21px
+		color: #ffffff
+		padding: 30px 5px
+		+trs
+		&:hover
+			background-color: darken(#3876ad,10)
+
+/* Gallery Aside
+	----------------------------------- */
+.gallery-aside
+	display: flex
+	flex-direction: column
+	position: fixed
+	z-index: 102
+	top: 0
+	right: 0
+	bottom: 0
+	height: 100%
+	width: 195px
+	border-left: 5px solid #ffffff
+	+r(1439)
+		width: 160px
+	&__item
+		cursor: pointer
+		display: flex
+		flex: 1
+		flex-direction: column
+		padding: 0 10px 0 25px
+		justify-content: center
+		align-items: flex-start
+		position: relative
+		overflow: hidden
+		background-size: cover
+		background-position: center center
+		background-repeat: no-repeat
+		+r(1919)
+			padding-left: 20px
+		+r(1439)
+			padding-left: 10px
+		&:before
+			pointer-events: none
+			content: ''
+			position: absolute
+			z-index: 2
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			width: 100%
+			height: 100%
+			background-color: rgba(0, 0, 0, .5)
+			transition: all 0.4s
+			border-top: 1px solid rgba(255, 255, 255, .4)
+		&:after
+			content: ''
+			pointer-events: none
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			width: 100%
+			height: 100%
+			z-index: 1
+			transition: all 0.4s
+		&:hover:before
+			background-color: rgba(255, 255, 255, .5)
+	&__text
+		margin: 10px 0
+		position: relative
+		z-index: 3
+		color: #ffffff
+		+r(1919)
+			margin: 5px 0
+			font-size: 18px
+		+r(1439)
+			margin: 0
+			font-size: 16px
+	&__item:hover &__text
+		color: #333333
+	
 		
 /* Contact
 	----------------------------------- */

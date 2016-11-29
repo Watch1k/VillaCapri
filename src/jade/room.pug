@@ -1,0 +1,24 @@
+extend includes/_layout
+block title
+	title Номера
+block right
+block body
+	include includes/_roomAside
+block content
+	.page.page_full.page_room.room
+		.page__inner.room__inner
+			.room__bg(style='background-image: url(img/content/room-1.jpg)')
+			.content
+				.content__inner
+					.content__desc
+						a.content__desc-look(href='#') ПОСМОТРЕТЬ <br>СВОБОДНЫЕ ДАТЫ
+						.content__desc-title ОСТАВИТЬ ЗАЯВКУ
+						form.content__desc-form.form(action='#')
+							.form__field
+								input.form__input(type='text' placeholder='Введите имя')
+							.form__field
+								input.form__input(type='text' placeholder='Введите телефон')
+							.form__field
+								button.form__submit(type='submit') ОТПРАВИТЬ
+					.content__main
+						.content__main-title DELUXE №3

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Catalog</title>
+  <title>Gallery Description</title>
   <meta name="format-detection" content="telephone=no">
   <!-- theme color for android 5.0 -->
   <meta name="theme-color" content="#fff">
@@ -12,6 +12,25 @@
   <link rel="stylesheet" media="all" href="css/screen.css">
   <!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
 </head>
+<!--begin gallery-aside-->
+<div class="gallery-aside">
+  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-1-sm.jpg)">
+    <div class="gallery-aside__text">Lounge зона с кинотеатром под открытым небом</div>
+  </div>
+  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-2-sm.jpg)">
+    <div class="gallery-aside__text">Детская зона</div>
+  </div>
+  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-3-sm.jpg)">
+    <div class="gallery-aside__text">Бассейн</div>
+  </div>
+  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-4-sm.jpg)">
+    <div class="gallery-aside__text">Wi-fi и офис на море</div>
+  </div>
+  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-5-sm.jpg)">
+    <div class="gallery-aside__text">Наши мероприятия</div>
+  </div>
+</div>
+<!--end gallery-aside-->
 
 <body>
   <div class="preload-image js-preload-image"></div>
@@ -77,42 +96,35 @@
     </div><a class="navigation__arc" href="#">СОЗДАНО РУКАМИ<span class="navigation__arc-color">АКТИКОМ</span></a>
   </div>
   <!--end navigation-->
-  <ul style="position: fixed; left:0;right:0;top:0;bottom:0; z-index: 9999; background: #fff; padding-left: 30px; list-style: decimal">
-    <li><a href="index.html" target="_blank">Главная</a></li>
-    <li><a href="contact.html" target="_blank">Контакты</a></li>
-    <li><a href="lc.html" target="_blank">Личный кабинет</a></li>
-    <li><a href="gallery.html" target="_blank">Галлерея</a></li>
-    <li><a href="gallery_desc.html" target="_blank">Галлерея с описанием</a></li>
-  </ul>
-  <!--begin control-->
-  <div class="control js-control">
-    <!-- #1-->
-    <div class="control__item control__item_current js-control-current">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">Европейский <br>отдых в <br>Крыму</div>
-    </div>
-    <!-- #2-->
-    <div class="control__item control__item_next js-control-next">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">17 номеров <br>с видом на море</div>
-    </div>
-    <!-- #3-->
-    <div class="control__item control__item_last js-control-next-double">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">Cредиземно-морская кухня</div>
-    </div>
-    <!-- #4-->
-    <div class="control__item js-control-hidden">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">Территория <br>Villa Capri</div>
-    </div>
-    <!-- #5-->
-    <div class="control__item control__item_prev js-control-prev">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">Активный отдых и экскурсии</div>
+  <div class="page page_full page_gallery gallery js-move-wrapper">
+    <div class="page__inner page__gallery gallery__inner">
+      <div class="gallery__screen js-gallery">
+        <div class="gallery__title-main">LOUNGE ЗОНА <br>С КИНОТЕАТРОМ ПОД <br>ОТКРЫТЫМ НЕБОМ</div>
+        <div class="gallery__subtitle-main">Описание раздела описание раздела описание раздела описание раздела описание раздела описание раздела описание раздела описание раздела описание раздела описание раздела описание раздела описание раздела описание раздела</div>
+        <button class="gallery__btn js-gallery-btn" type="button"></button>
+      </div>
+      <div class="gallery__content js-gallery-content">
+        <div class="gallery__item gallery__item_2" style="background-image: url(img/content/gallery-item-1.jpg)">
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-1.jpg"></a>
+        </div>
+        <div class="gallery__item gallery__item_2" style="background-image: url(img/content/gallery-item-2.jpg)">
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-2.jpg"></a>
+        </div>
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-3.jpg)">
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-3.jpg"></a>
+        </div>
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-4.jpg)">
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-4.jpg"></a>
+        </div>
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-5.jpg)">
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-5.jpg"></a>
+        </div>
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-6.jpg)">
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-6.jpg"></a>
+        </div>
+      </div>
     </div>
   </div>
-  <!--end control-->
   <script src="js/app.js"></script>
 </body>
 

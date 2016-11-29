@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Catalog</title>
+  <title>Номера</title>
   <meta name="format-detection" content="telephone=no">
   <!-- theme color for android 5.0 -->
   <meta name="theme-color" content="#fff">
@@ -12,6 +12,22 @@
   <link rel="stylesheet" media="all" href="css/screen.css">
   <!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
 </head>
+<!--begin room-aside-->
+<div class="room-aside">
+  <a class="room-aside__item" style="background-image: url(img/content/room-1-sm.jpg)" href="#">
+    <div class="room-aside__text">DELUXE <br>№1</div>
+  </a>
+  <a class="room-aside__item is-active" style="background-image: url(img/content/room-2-sm.jpg)" href="#">
+    <div class="room-aside__text">DELUXE <br>№2</div>
+    <button class="room-aside__more" type="button">ПОДРОБНЕЕ</button></a>
+  <a class="room-aside__item" style="background-image: url(img/content/room-3-sm.jpg)" href="#">
+    <div class="room-aside__text">DELUXE <br>№3</div>
+  </a>
+  <a class="room-aside__item" style="background-image: url(img/content/room-4-sm.jpg)" href="#">
+    <div class="room-aside__text">DELUXE <br>№4</div>
+  </a>
+</div>
+<!--end room-aside-->
 
 <body>
   <div class="preload-image js-preload-image"></div>
@@ -77,42 +93,32 @@
     </div><a class="navigation__arc" href="#">СОЗДАНО РУКАМИ<span class="navigation__arc-color">АКТИКОМ</span></a>
   </div>
   <!--end navigation-->
-  <ul style="position: fixed; left:0;right:0;top:0;bottom:0; z-index: 9999; background: #fff; padding-left: 30px; list-style: decimal">
-    <li><a href="index.html" target="_blank">Главная</a></li>
-    <li><a href="contact.html" target="_blank">Контакты</a></li>
-    <li><a href="lc.html" target="_blank">Личный кабинет</a></li>
-    <li><a href="gallery.html" target="_blank">Галлерея</a></li>
-    <li><a href="gallery_desc.html" target="_blank">Галлерея с описанием</a></li>
-  </ul>
-  <!--begin control-->
-  <div class="control js-control">
-    <!-- #1-->
-    <div class="control__item control__item_current js-control-current">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">Европейский <br>отдых в <br>Крыму</div>
-    </div>
-    <!-- #2-->
-    <div class="control__item control__item_next js-control-next">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">17 номеров <br>с видом на море</div>
-    </div>
-    <!-- #3-->
-    <div class="control__item control__item_last js-control-next-double">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">Cредиземно-морская кухня</div>
-    </div>
-    <!-- #4-->
-    <div class="control__item js-control-hidden">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">Территория <br>Villa Capri</div>
-    </div>
-    <!-- #5-->
-    <div class="control__item control__item_prev js-control-prev">
-      <div class="control__item-icon icon"></div>
-      <div class="control__item-text">Активный отдых и экскурсии</div>
+  <div class="page page_full page_room room">
+    <div class="page__inner room__inner">
+      <div class="room__bg" style="background-image: url(img/content/room-1.jpg)"></div>
+      <div class="content">
+        <div class="content__inner">
+          <div class="content__desc"><a class="content__desc-look" href="#">ПОСМОТРЕТЬ <br>СВОБОДНЫЕ ДАТЫ</a>
+            <div class="content__desc-title">ОСТАВИТЬ ЗАЯВКУ</div>
+            <form class="content__desc-form form" action="#">
+              <div class="form__field">
+                <input class="form__input" type="text" placeholder="Введите имя">
+              </div>
+              <div class="form__field">
+                <input class="form__input" type="text" placeholder="Введите телефон">
+              </div>
+              <div class="form__field">
+                <button class="form__submit" type="submit">ОТПРАВИТЬ</button>
+              </div>
+            </form>
+          </div>
+          <div class="content__main">
+            <div class="content__main-title">DELUXE №3</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <!--end control-->
   <script src="js/app.js"></script>
 </body>
 

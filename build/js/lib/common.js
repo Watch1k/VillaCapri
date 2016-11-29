@@ -31,6 +31,32 @@ $(document).ready(function () {
 		});
 	})();
 
+	//gallery
+	(function () {
+		var galleryBtn = $('.js-gallery-btn'),
+			gallery = $('.js-gallery'),
+			galleryContent = $('.js-gallery-content'),
+			zoomBtn = $('.js-gallery-zoom');
+
+		galleryBtn.on('click', function () {
+			galleryContent.fadeIn().css('display', 'flex');
+		});
+
+		zoomBtn.on('click', function (e) {
+			e.preventDefault();
+			var _this = $(this),
+				href = _this.data('href');
+			$('<div class="gallery__bg js-gallery-bg" style="background-image: url(' + href + '"><button type="button" class="gallery__bg-btn js-gallery-zoom-out"></button></div>').insertAfter(galleryContent);
+			$('.js-gallery-bg').fadeIn();
+			$('.js-gallery-zoom-out').on('click', function () {
+				var _thisBtn = $(this);
+				_thisBtn.parent().fadeOut(function () {
+					_thisBtn.parent().remove();
+				});
+			});
+		});
+	})();
+
 	//navigation
 	(function () {
 		var hamburger = $('.js-hamburger'),
@@ -38,9 +64,19 @@ $(document).ready(function () {
 			aside = $('.js-aside'),
 			geoBtn = $('.js-geo'),
 			navigation = $('.js-navigation'),
-			navigation2 = $('.js-navigation2');
+			navigation2 = $('.js-navigation2'),
+			moveWrapper = $('.js-move-wrapper'),
+			gallery = $('.js-gallery');
 
 		hamburger.on('click', function () {
+			if (gallery.length) {
+				if ($('.js-gallery-bg').length) {
+					$('.js-gallery-bg').toggleClass('is-move');
+				}
+			}
+			if (moveWrapper.length) {
+				moveWrapper.toggleClass('is-move');
+			}
 			$(this).toggleClass('is-active');
 			phone.toggleClass('is-active');
 			if ($(this).hasClass('is-geo')) {
