@@ -616,10 +616,9 @@ img
 	&__inner
 		display: flex
 		flex-direction: row
-		margin-top: 20vh
+		padding-top: 20vh
 		flex-shrink: 1
 		flex-grow: 0
-		flex-basis: calc(40% + 1px)
 		flex-wrap: wrap
 		justify-content: flex-end
 	.slick-list,
@@ -781,7 +780,9 @@ img
 		&:hover &-text-border:before
 			width: 60%
 	&__main
+		overflow: hidden
 		width: 670px
+		height: 40vh
 		padding-top: 30px
 		padding-right: 50px
 		+sfui
@@ -793,6 +794,14 @@ img
 			padding-right: 30px
 			padding-top: 20px
 			width: 420px
+		&_wide
+			overflow: auto
+			padding-left: 30px
+			width: 850px
+			+r(1919)
+				width: 650px
+			+r(1439)
+				width: 550px
 		&-title
 			font-size: 84px
 			text-transform: uppercase
@@ -814,6 +823,55 @@ img
 					font-size: 24px
 		&-text + &-title
 			margin-top: 50px
+		&-text-normal
+			font-size: 18px
+			+sfui
+			+r(1919)
+				font-size: 16px
+			+r(1439)
+				font-size: 15px
+		&-price,
+		&-subprice-text,
+		&-subprice
+			font-size: 35px
+			+r(1919)
+				font-size: 30px
+			+r(1599)
+				font-size: 21px
+			+r(1439)
+				font-size: 18px
+		&-price
+			+sfui
+			&-color
+				+sfui-medium
+		&-subprice-text
+			+sfui
+			color: #0075b0
+		&-subprice
+			color: #0075b0
+		&-desc
+			position: relative
+			margin-top: 20px
+			font-size: 21px
+			padding-left: 30px
+			+r(1919)
+				font-size: 18px
+			&:before
+				content: ''
+				position: absolute
+				z-index: 1
+				left: 30px
+				top: -10px
+				right: 0
+				height: 1px
+				background-color: rgba(51, 51, 51, .5)
+	&__submain
+		&_wide
+			width: 850px
+			+r(1919)
+				width: 650px
+			+r(1439)
+				width: 550px
 	&__row-sub
 		flex-basis: 100%
 		height: 20vh
@@ -849,17 +907,149 @@ img
 		&-look
 			display: block
 			margin-bottom: 30px
-			padding: 20px 0
+			padding: 20px 5px
 			font-size: 21px
 			color: #ffffff
 			text-align: center
 			background-color: #3876ae
+			+trs
+			+r(1599)
+				margin-bottom: 15px
+				padding: 10px 5px
+				font-size: 18px
+			+r(1439)
+				margin-bottom: 10px
+				font-size: 15px
+				padding: 7px 5px
+			&:hover
+				background-color: darken(#3876ae,10)
+			br
+				+r(1599)
+					display: none
+		&-title
+			font-size: 21px
+			color: #ffffff
+			background-color: #333333
+			height: 40px
+			line-height: 40px
+			white-space: nowrap
+			text-align: center
+			+r(1599)
+				font-size: 18px
+	&__options
+		margin: 1px
+	&__suboptions
+		margin-top: -1px
+		
+/* Options
+	----------------------------------- */
+.options
+	flex-basis: 100%
+	+pie-clearfix
+	font-size: 0
+	&_full
+		margin-left: -1px
+		margin-right: -1px
+	&__right
+		float: right
+	&__left
+		float: left
+	&__item
+		position: relative
+		margin: 1px
+		width: 94px
+		height: 94px
+		background-color: #3876ae
+		display: inline-block
+		+r(1919)
+			width: 64px
+			height: 64px
+	&_gray &__item
+		background-color: #808080
+		margin: 0 1px 0 0
+		+trs
+		&:hover
+			background-color: #333333
+	&__content
+		position: relative
+		top: -1px
+		overflow: hidden
+		text-align: right
+		&-row
+			display: flex
+			justify-content: center
+			flex-direction: column
+			height: 96px
+			background-color: rgba(255, 255, 255, .75)
+			padding-left: 10px
+			padding-right: 50px
+			+r(1919)
+				padding-right: 30px
+				height: 66px
+			& + &
+				background-color: rgba(0, 0, 0, .5)
+				color: #ffffff
+		&-price
+			+sfui
+			font-size: 21px
+			&_white
+				color: #ffffff
+			&-color
+				white-space: nowrap
+				+sfui-medium
+			+r(1919)
+				font-size: 18px
+		&-subprice
+			+sfui
+			font-size: 21px
+			color: #0075b0
+			&_white
+				color: #ffffff
+			&-color
+				white-space: nowrap
+				+sfui-medium
+			+r(1919)
+				font-size: 18px
+	&__icon
+		z-index: 1
+		+vcenter
+		+r(1919)
+			transform: translate3d(-50%,-50%,0) scale(0.66)
+			
 			
 /* ===================================
 	 Form
 	 =================================== */
 .form
-	
+	&__field
+		+pie-clearfix
+		&:last-child
+			margin-top: 15px
+			+r(1439)
+				margin-top: 10px
+	&__input
+		border: 1px solid #333333
+		border-top: none
+		background-color: rgba(255, 255, 255, .5)
+		+sfui
+		color: #333333
+		font-size: 18px
+		line-height: 40px
+		height: 40px
+		width: 100%
+		text-align: center
+		+placeholder-color(#333)
+	&__submit
+		width: 100%
+		height: 40px
+		line-height: 40px
+		font-size: 21px
+		color: #ffffff
+		background-color: #3876ae
+		+r(1599)
+			font-size: 18px
+		&:hover
+			background-color: darken(#3876ae,10)
 	
 					
 /* ===================================
@@ -1138,6 +1328,14 @@ img
 	border-left: 5px solid #ffffff
 	+r(1439)
 		width: 160px
+	&:before
+		content: ''
+		position: absolute
+		right: 100%
+		margin-right: 5px
+		top: 20%
+		margin-top: 60px
+		+arr(15,30,#ffffff,l)
 	&__item
 		cursor: pointer
 		display: flex
@@ -1216,6 +1414,10 @@ img
 		color: #ffffff
 		padding: 30px 5px
 		+trs
+		+r(1599)
+			font-size: 18px
+		+r(1439)
+			font-size: 15px
 		&:hover
 			background-color: darken(#3876ad,10)
 
