@@ -12,14 +12,15 @@ block content
 				.content__inner
 					.content__desc
 						a.content__desc-look(href='#') ПОСМОТРЕТЬ <br>СВОБОДНЫЕ ДАТЫ
-						.content__desc-title ОСТАВИТЬ ЗАЯВКУ
-						form.content__desc-form.form(action='#')
-							.form__field
-								input.form__input(type='text' placeholder='Введите имя')
-							.form__field
-								input.form__input(type='text' placeholder='Введите телефон')
-							.form__field
-								button.form__submit(type='submit') ОТПРАВИТЬ
+						.content__desc-title.js-room-request ОСТАВИТЬ ЗАЯВКУ
+						.content__desc-show.js-room-request-show
+							form.content__desc-form.form(action='#')
+								.form__field
+									input.form__input(type='text' placeholder='Введите имя')
+								.form__field
+									input.form__input(type='text' placeholder='Введите телефон')
+								.form__field
+									button.form__submit(type='submit') ОТПРАВИТЬ
 					.content__main
 						.content__main-title DELUXE №3
 						.content__main-price Цена:&nbsp;
@@ -27,19 +28,20 @@ block content
 						.content__main-subprice-text Цена при раннем бронировании:
 						.content__main-subprice 4000 ₽/ночь
 						.content__main-desc Прекрасный номер с видом на море. Выполнен в английском аристократическом стиле со множеством интересных деталей.
-					.content__options.options
-						.options__right
-							.options__row
-								.options__item
-									.options__icon.icon.icon-option-1
-								.options__item
-									.options__icon.icon.icon-option-2
-								.options__item
-									.options__icon.icon.icon-option-3
-							.options__row
-								.options__item
-									.options__icon.icon.icon-option-4
-								.options__item
-									.options__icon.icon.icon-option-5
-								.options__item
-									.options__icon.icon.icon-option-6
+					.content__row
+						.content__options.options
+							.options__right
+								.options__row
+									.options__item
+										.options__icon.icon.icon-option-1
+									.options__item
+										.options__icon.icon.icon-option-2
+									.options__item
+										.options__icon.icon.icon-option-3
+								.options__row
+									.options__item
+										.options__icon.icon.icon-option-4
+									.options__item
+										.options__icon.icon.icon-option-5
+									.options__item
+										.options__icon.icon.icon-option-6

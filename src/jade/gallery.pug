@@ -1,29 +1,58 @@
 extend includes/_layout
 block title
-	title Gallery
+	title Галерея
 block right
 block body
-	include includes/_galleryAside
+	include includes/_galleryAsideDesc
 block content
 	.page.page_full.page_gallery.gallery.js-move-wrapper
-		.page__inner.page__gallery.gallery__inner
-			.gallery__screen.js-gallery
-			.gallery__content.js-gallery-content.is-active
-				.gallery__item.gallery__item_2(style='background-image: url(img/content/gallery-item-7.jpg)')
+		.page__inner.page__gallery.gallery__inner.js-room-fullpage(style='background-image: url(../img/bg/section-4-3.jpg)')
+			.content.content_gallery.js-room-page(style='background-image: url(../img/bg/section-4-3.jpg);')
+				.content__inner
+					.content__main.content__main_gallery
+						.content__main-title.gallery__title LOUNGE ЗОНА <br>С КИНОТЕАТРОМ ПОД <br>ОТКРЫТЫМ НЕБОМ
+						.content__main-desc Описание раздела описание раздела описание раздела <br>описание раздела описание раздела описание <br>раздела описание раздела
+					.content__row
+						.content__submain.content__submain_wide
+							.content__options.options.options_gray
+								.options__row.options__right.js-suboption
+									a.options__item.js-gallery-btn(href='#')
+										.options__icon.icon.icon-suboption-1
+			.gallery__content.gallery__bg.js-room-page.js-gallery-content.js-move-wrapper
+				.gallery__item.gallery__item_2(style='background-image: url(img/content/gallery-item-1.jpg)')
 					.gallery__item-text РЕСТОРАН VILLA CAPRI
-					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-7.jpg')
-				.gallery__item.gallery__item_2(style='background-image: url(img/content/gallery-item-8.jpg)')
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-1.jpg')
+				.gallery__item.gallery__item_2(style='background-image: url(img/content/gallery-item-2.jpg)')
 					.gallery__item-text РЕСТОРАН VILLA CAPRI
-					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-8.jpg')
-				.gallery__item(style='background-image: url(img/content/gallery-item-9.jpg)')
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-2.jpg')
+				.gallery__item(style='background-image: url(img/content/gallery-item-3.jpg)')
 					.gallery__item-text РЕСТОРАН VILLA CAPRI
-					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-9.jpg')
-				.gallery__item(style='background-image: url(img/content/gallery-item-10.jpg)')
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-3.jpg')
+				.gallery__item(style='background-image: url(img/content/gallery-item-4.jpg)')
 					.gallery__item-text РЕСТОРАН VILLA CAPRI
-					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-10.jpg')
-				.gallery__item(style='background-image: url(img/content/gallery-item-11.jpg)')
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-4.jpg')
+				.gallery__item(style='background-image: url(img/content/gallery-item-5.jpg)')
 					.gallery__item-text РЕСТОРАН VILLA CAPRI
-					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-11.jpg')
-				.gallery__item(style='background-image: url(img/content/gallery-item-12.jpg)')
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-5.jpg')
+				.gallery__item(style='background-image: url(img/content/gallery-item-6.jpg)')
 					.gallery__item-text РЕСТОРАН VILLA CAPRI
-					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-12.jpg')
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-6.jpg')
+			.gallery__content.gallery__bg.js-room-page.js-gallery-content.js-move-wrapper
+				.gallery__item.gallery__item_2(style='background-image: url(img/content/gallery-item-1.jpg)')
+					.gallery__item-text РЕСТОРАН VILLA CAPRI
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-1.jpg')
+				.gallery__item.gallery__item_2(style='background-image: url(img/content/gallery-item-2.jpg)')
+					.gallery__item-text РЕСТОРАН VILLA CAPRI
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-2.jpg')
+				.gallery__item(style='background-image: url(img/content/gallery-item-3.jpg)')
+					.gallery__item-text РЕСТОРАН VILLA CAPRI
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-3.jpg')
+				.gallery__item(style='background-image: url(img/content/gallery-item-4.jpg)')
+					.gallery__item-text РЕСТОРАН VILLA CAPRI
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-4.jpg')
+				.gallery__item(style='background-image: url(img/content/gallery-item-5.jpg)')
+					.gallery__item-text РЕСТОРАН VILLA CAPRI
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-5.jpg')
+				.gallery__item(style='background-image: url(img/content/gallery-item-6.jpg)')
+					.gallery__item-text РЕСТОРАН VILLA CAPRI
+					a.gallery__zoom-in.js-gallery-zoom(href='#' data-href='img/content/gallery-item-6.jpg')

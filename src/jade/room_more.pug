@@ -1,61 +1,66 @@
 extend includes/_layout
 block title
-	title Номера
+	title Номера (подробнее)
 block right
 block body
 	include includes/_roomAsideLess
 block content
 	.page.page_full.page_room.room
-		.page__inner.room__inner
+		.page__inner.room__inner.js-room-fullpage2
 			.room__bg(style='background-image: url(img/content/room-1.jpg)')
+			.room__bg(style='background-image: url(img/bg/section-1.jpg)')
+			.room__bg(style='background-image: url(img/bg/section-2.jpg)')
+			.room__bg(style='background-image: url(img/bg/section-3.jpg)')
 			.content
 				.content__inner
 					.content__desc
 						a.content__desc-look(href='#') ПОСМОТРЕТЬ <br>СВОБОДНЫЕ ДАТЫ
-						.content__desc-title ОСТАВИТЬ ЗАЯВКУ
-						form.content__desc-form.form(action='#')
-							.form__field
-								input.form__input(type='text' placeholder='Введите имя')
-							.form__field
-								input.form__input(type='text' placeholder='Введите телефон')
-							.form__field
-								button.form__submit(type='submit') ОТПРАВИТЬ
+						.content__desc-title.js-room-request ОСТАВИТЬ ЗАЯВКУ
+						.content__desc-show.js-room-request-show
+							form.content__desc-form.form(action='#')
+								.form__field
+									input.form__input(type='text' placeholder='Введите имя')
+								.form__field
+									input.form__input(type='text' placeholder='Введите телефон')
+								.form__field
+									button.form__submit(type='submit') ОТПРАВИТЬ
 					.content__main.content__main_wide
 						.content__main-title DELUXE №3
-						.content__main-text-normal Deluxe Classic представляет собой эксклюзивный дизайнерский номер с двумя спальнями, одной гостиной комнатой и двумя ванными комнатами с душем с гидромассажем, феном, халатами и необходимыми туалетно-косметическими принадлежностями. Общая площадь комнат 45 кв.м, террасы 40 кв.м. В номере комфортно могут разместиться 5 гостей: одна спальня оборудована двуспальной кроватью размером King Size и удобным диваном с полноценным спальным местом, другая двумя односпальными кроватями. В гостиной с панорамным остеклением с видом на море - большой обеденный стол, мини-бар и чайные наборы. Для удобства  гостей из каждой спальни есть выход на большую индивидуальную террасу 40 кв.м. с шезлонгами и обеденной зоной, откуда открывается прекрасный вид на море. В числе удобств также бесплатный индивидуальный высокоскоростной wi-fi, кондиционеры фирмы Daikin, сейф, фитнес-весы и телевизоры с плоским экраном.
-					.content__submain.content__submain_wide
-						.content__options.options.options_full
-							.options__left
-								.options__row
-									.options__item
-										.options__icon.icon.icon-option-1
-									.options__item
-										.options__icon.icon.icon-option-2
-									.options__item
-										.options__icon.icon.icon-option-3
-								.options__row
-									.options__item
-										.options__icon.icon.icon-option-4
-									.options__item
-										.options__icon.icon.icon-option-5
-									.options__item
-										.options__icon.icon.icon-option-6
-							.options__content
-								.options__content-row
-									.options__content-price Цена:&nbsp;
-										span.options__content-price-color 5000 ₽/ночь
-									.options__content-subprice Цена при раннем бронировании:&nbsp;
-										span.options__content-subprice-color 4000 ₽/ночь
-								.options__content-row
-									.options__content-price.options__content-price_white Площадь:&nbsp;
-										span.options__content-price-color 50 кв.м.
-									.options__content-subprice.options__content-subprice_white Вид:&nbsp;
-										span.options__content-subprice-color на море
-						.content__suboptions.options.options_gray
-							.options__row.options__right
-								a.options__item(href='#')
-									.options__icon.icon.icon-suboption-1
-								a.options__item(href='#')
-									.options__icon.icon.icon-suboption-2
-								a.options__item(href='#')
-									.options__icon.icon.icon-suboption-3
+						.content__main-text-normal.js-disable-scroll Deluxe Classic представляет собой эксклюзивный дизайнерский номер с двумя спальнями, одной гостиной комнатой и двумя ванными комнатами с душем с гидромассажем, феном, халатами и необходимыми туалетно-косметическими принадлежностями. Общая площадь комнат 45 кв.м, террасы 40 кв.м. В номере комфортно могут разместиться 5 гостей: одна спальня оборудована двуспальной кроватью размером King Size и удобным диваном с полноценным спальным местом, другая двумя односпальными кроватями. В гостиной с панорамным остеклением с видом на море - большой обеденный стол, мини-бар и чайные наборы. Для удобства  гостей из каждой спальни есть выход на большую индивидуальную террасу 40 кв.м. с шезлонгами и обеденной зоной, откуда открывается прекрасный вид на море. В числе удобств также бесплатный индивидуальный высокоскоростной wi-fi, кондиционеры фирмы Daikin, сейф, фитнес-весы и телевизоры с плоским экраном.
+					.content__row
+						.content__submain.content__submain_wide
+							.content__options.options.options_full
+								.options__left
+									.options__row
+										.options__item
+											.options__icon.icon.icon-option-1
+										.options__item
+											.options__icon.icon.icon-option-2
+										.options__item
+											.options__icon.icon.icon-option-3
+									.options__row
+										.options__item
+											.options__icon.icon.icon-option-4
+										.options__item
+											.options__icon.icon.icon-option-5
+										.options__item
+											.options__icon.icon.icon-option-6
+								.options__content
+									.options__content-row
+										.options__content-price Цена:&nbsp;
+											span.options__content-price-color 5000 ₽/ночь
+										.options__content-subprice Цена при раннем бронировании:&nbsp;
+											span.options__content-subprice-color 4000 ₽/ночь
+									.options__content-row
+										.options__content-price.options__content-price_white Площадь:&nbsp;
+											span.options__content-price-color 50 кв.м.
+										.options__content-subprice.options__content-subprice_white Вид:&nbsp;
+											span.options__content-subprice-color на море
+							.content__suboptions.options.options_gray
+								.options__row.options__right.js-suboption
+									a.options__item.is-active(href='#')
+										.options__icon.icon.icon-suboption-1
+									a.options__item(href='#')
+										.options__icon.icon.icon-suboption-2
+									a.options__item(href='#')
+										.options__icon.icon.icon-suboption-3

@@ -560,6 +560,7 @@ img
 	visibility: hidden
 
 .section
+	position: absolute
 	width: calc(100% - 195px)
 	top: 0
 	left: 0
@@ -598,12 +599,13 @@ img
 .pp-tableCell
 	position: relative
 	z-index: 2
+	display: table
 	
 /* Content
 	----------------------------------- */
 .content
 	position: absolute
-	z-index: 3
+	z-index: 10
 	right: 0
 	top: 0
 	bottom: 0
@@ -794,14 +796,32 @@ img
 			padding-right: 30px
 			padding-top: 20px
 			width: 420px
-		&_wide
+		&_plan
 			overflow: auto
+			padding-top: 0
+			.slick-arrow
+				background-color: #ffffff
+				&:hover
+					background-color: #cccccc
+		&_rest
+			width: 701px
+			+r(1599)
+				width: 651px
+			+r(1439)
+				width: 601px
+		&_wide
+			overflow: visible
 			padding-left: 30px
 			width: 850px
+			display: flex
+			flex-direction: column
 			+r(1919)
 				width: 650px
 			+r(1439)
 				width: 550px
+		&_gallery
+			+r(1919)
+				width: 620px
 		&-title
 			font-size: 84px
 			text-transform: uppercase
@@ -824,7 +844,10 @@ img
 		&-text + &-title
 			margin-top: 50px
 		&-text-normal
+			overflow: auto
 			font-size: 18px
+			margin-right: -30px
+			padding-right: 30px
 			+sfui
 			+r(1919)
 				font-size: 16px
@@ -849,6 +872,12 @@ img
 			color: #0075b0
 		&-subprice
 			color: #0075b0
+		&-rest
+			margin-top: 20px
+			+r(1599)
+				font-size: 26px
+			+r(1439)
+				font-size: 21px
 		&-desc
 			position: relative
 			margin-top: 20px
@@ -865,6 +894,24 @@ img
 				right: 0
 				height: 1px
 				background-color: rgba(51, 51, 51, .5)
+	&__plan
+		&-item
+			&.slick-slide
+				overflow: auto
+				height: 100%
+		&-el
+			overflow: auto
+			margin-top: 30px
+			+r(1919)
+				margin-top: 20px
+		&-desc
+			position: relative
+			font-size: 21px
+			padding-left: 30px
+			+r(1919)
+				font-size: 18px
+			& + &
+				margin-top: 0
 	&__submain
 		&_wide
 			width: 850px
@@ -872,6 +919,13 @@ img
 				width: 650px
 			+r(1439)
 				width: 550px
+		&_rest
+			height: 20vh
+			width: 700px
+			+r(1599)
+				width: 650px
+			+r(1439)
+				width: 600px
 	&__row-sub
 		flex-basis: 100%
 		height: 20vh
@@ -926,7 +980,10 @@ img
 			br
 				+r(1599)
 					display: none
+		&-show
+			display: none
 		&-title
+			cursor: pointer
 			font-size: 21px
 			color: #ffffff
 			background-color: #333333
@@ -934,12 +991,19 @@ img
 			line-height: 40px
 			white-space: nowrap
 			text-align: center
+			+trs
+			&:hover
+				background-color: #3876ae
 			+r(1599)
 				font-size: 18px
 	&__options
 		margin: 1px
 	&__suboptions
 		margin-top: -1px
+	&__row
+		flex-basis: 100%
+		display: flex
+		justify-content: flex-end
 		
 /* Options
 	----------------------------------- */
@@ -950,25 +1014,40 @@ img
 	&_full
 		margin-left: -1px
 		margin-right: -1px
-	&__right
-		float: right
 	&__left
 		float: left
 	&__item
+		cursor: pointer
 		position: relative
 		margin: 1px
 		width: 94px
 		height: 94px
 		background-color: #3876ae
 		display: inline-block
+		+trs
+		&:hover,
+		&.is-active
+			background-color: #333333
 		+r(1919)
 			width: 64px
 			height: 64px
+		&_rest
+			display: block
+			+vertical
+		&-text
+			+sfui
+			color: #ffffff
+			font-size: 21px
+			display: inline-block
+			vertical-align: middle
+			+r(1599)
+				font-size: 18px
 	&_gray &__item
 		background-color: #808080
 		margin: 0 1px 0 0
 		+trs
-		&:hover
+		&:hover,
+		&.is-active
 			background-color: #333333
 	&__content
 		position: relative
@@ -1015,7 +1094,54 @@ img
 		+vcenter
 		+r(1919)
 			transform: translate3d(-50%,-50%,0) scale(0.66)
+	&_rest
+		display: flex
+		flex-direction: row
+		font-size: 18px
+		margin-left: 0
+		margin-right: 0
+		width: 100%
+		flex-basis: 100%
+		height: 100%
+	&__right
+		float: right
+		&_rest
+			float: none
+			font-size: 0
+			flex: 0 1 auto
+			display: flex
+			.options__row
+				display: flex
+				flex: 1 0 auto
+				flex-direction: column
+	&__rest
+		&_left
+			display: flex
+			flex: 0 0 auto
+		&-map
+			flex: 1 1 auto
+		&-btn
+			cursor: pointer
+			display: flex
+			flex-direction: column
+			background-color: #333333
+			width: 92px
+			font-size: 21px
+			color: #ffffff
+			text-align: center
+			justify-content: center
+			align-items: center
+			&-text
+				margin-top: 15px
 			
+.rest-map
+	&__temp-img
+		display: block
+		width: 100%
+		max-width: non
+		height: 100%
+		max-height: 100%
+		
 			
 /* ===================================
 	 Form
@@ -1142,10 +1268,46 @@ img
 /* Gallery
 	----------------------------------- */
 .gallery
+	overflow: hidden
 	position: relative
+	&__title
+		+sfui
+		font-size: 44px
+		+r(1919)
+			font-size: 36px
+		&_line
+			margin-top: 20px
+			position: relative
+			+r(1919)
+				margin-top: 15px
+			&:before
+				content: ''
+				position: absolute
+				z-index: 1
+				left: 30px
+				bottom: -15px
+				right: 0
+				height: 1px
+				background-color: rgba(51, 51, 51, .5)
 	&__inner
 		position: relative
 		z-index: 1
+		padding-top: 0!important
+		padding-left: 0!important
+		> *
+			padding-top: 72px
+			padding-left: 190px
+			background-position: center center
+			background-repeat: no-repeat
+			background-size: cover
+			&:first-child
+				padding-top: 0
+				padding-left: 0
+				left: 0
+			+r(1919)
+				padding-top: 60px
+			+r(1599)
+				padding-left: 140px
 	&__bg
 		display: none
 		position: absolute
@@ -1162,45 +1324,61 @@ img
 			position: absolute
 			z-index: 1
 			top: 0
-			left: 235px
+			left: 241px
 			right: 0
-			height: 60px
+			height: 72px
 			background-color: rgba(255, 255, 255, .7)
 			transition: left 0.4s
+			+r(1919)
+				height: 60px
+				left: 235px
 			+r(1599)
 				left: 185px
 		&.is-move
 			&:before
-				left: 425px
+				left: 431px
+				+r(1919)
+					left: 425px
 				+r(1599)
 					left: 345px
 		&-btn
-			z-index: 2
+			z-index: 10
 			margin-left: 75px
 			+vcenter
 			+s(zoom-out)
 			cursor: pointer
 	&__screen
-		position: absolute
-		padding-left: 190px
+		position: relative
+		z-index: 10
+		height: 100%
+	&__screen ~ &__bg
+		&:before
+			display: none
+			content: none
+	&__inner &__screen
 		padding-top: 60px
-		top: 0
-		left: 0
-		right: 0
-		bottom: 0
-		z-index: 1
-		display: flex
-		flex-direction: column
-		justify-content: center
-		align-items: center
-		text-align: center
-		background: url(../img/bg/gallery-bg.jpg) center center no-repeat
-		background-size: cover
-		transition: padding 0.4s
+		padding-left: 190px
 		+r(1599)
 			padding-left: 140px
-	&.is-move &__screen
-		padding-left: 380px
+		&-inner
+			display: flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+			text-align: center
+			transition: padding 0.4s
+			position: absolute
+			z-index: 1
+			top: -60px
+			left: -140px
+			right: 0
+			bottom: 0
+			padding-left: 190px
+			padding-top: 60px
+			+r(1599)
+				padding-left: 140px
+	&.is-move &__screen-inner
+		padding-left: 330px
 		+r(1599)
 			padding-left: 300px
 	&__title-main
@@ -1226,20 +1404,23 @@ img
 			background-color: #333333
 	&__subtitle-main
 		+sfui
+		font-size: 21px
 		max-width: 80%
 		+r(1599)
 			font-size: 18px
-	&__btn
-		margin-top: 75px
-		display: inline-block
-		+s(photo)
 	&__content
-		display: none
-		position: relative
 		z-index: 2
+		display: block !important
 		width: 100%
 		height: 100%
-		flex-wrap: wrap
+		.pp-tableCell
+			display: flex !important
+			flex-wrap: wrap
+			transition: all 0.4s
+		&.is-move .pp-tableCell
+			padding-left: 160px
+			+r(1599)
+				padding-left: 160px
 		&.is-active
 			display: flex
 	&__item
@@ -1271,7 +1452,8 @@ img
 			&:before
 				opacity: 1
 		&_2
-			flex-basis: 50%
+			flex-basis: auto
+			width: 50%
 		&-text
 			position: relative
 			margin-bottom: 50px
@@ -1288,13 +1470,26 @@ img
 	&__zoom-in
 		position: relative
 		z-index: 2
-		display: block
+		display: inline-block
 		+s(zoom)
 		+trs
 		opacity: 0
+	&__vk
+		position: relative
+		z-index: 2
+		display: inline-block
+		margin-left: 10px
+		+s(vk)
+		+trs
+		opacity: 0
 	&__item:hover &__item-text,
-	&__item:hover &__zoom-in
+	&__item:hover &__zoom-in,
+	&__item:hover &__vk
 		opacity: 1
+	&__btn
+		margin-top: 75px
+		+s(photo-2)
+		
 		
 /* Room
 	----------------------------------- */
@@ -1325,6 +1520,7 @@ img
 	bottom: 0
 	height: 100%
 	width: 195px
+	+sfui
 	border-left: 5px solid #ffffff
 	+r(1439)
 		width: 160px
@@ -1385,6 +1581,23 @@ img
 			background-color: rgba(255, 255, 255, .5)
 		&.is-active:before
 			background-color: transparent
+	&__today-btn
+		position: absolute
+		z-index: 1
+		top: 40px
+		left: 0
+		right: 0
+		margin: 0 25px
+		padding: 10px 5px
+		+sfui
+		font-size: 21px
+		text-align: center
+		border: 2px solid #333
+		+r(1599)
+			top: 20px
+			padding: 7px 5px
+			margin: 0 15px
+			font-size: 18px
 	&__text
 		margin: 10px 0
 		position: relative
@@ -1421,80 +1634,6 @@ img
 		&:hover
 			background-color: darken(#3876ad,10)
 
-/* Gallery Aside
-	----------------------------------- */
-.gallery-aside
-	display: flex
-	flex-direction: column
-	position: fixed
-	z-index: 102
-	top: 0
-	right: 0
-	bottom: 0
-	height: 100%
-	width: 195px
-	border-left: 5px solid #ffffff
-	+r(1439)
-		width: 160px
-	&__item
-		cursor: pointer
-		display: flex
-		flex: 1
-		flex-direction: column
-		padding: 0 10px 0 25px
-		justify-content: center
-		align-items: flex-start
-		position: relative
-		overflow: hidden
-		background-size: cover
-		background-position: center center
-		background-repeat: no-repeat
-		+r(1919)
-			padding-left: 20px
-		+r(1439)
-			padding-left: 10px
-		&:before
-			pointer-events: none
-			content: ''
-			position: absolute
-			z-index: 2
-			top: 0
-			left: 0
-			right: 0
-			bottom: 0
-			width: 100%
-			height: 100%
-			background-color: rgba(0, 0, 0, .5)
-			transition: all 0.4s
-			border-top: 1px solid rgba(255, 255, 255, .4)
-		&:after
-			content: ''
-			pointer-events: none
-			position: absolute
-			top: 0
-			left: 0
-			right: 0
-			bottom: 0
-			width: 100%
-			height: 100%
-			z-index: 1
-			transition: all 0.4s
-		&:hover:before
-			background-color: rgba(255, 255, 255, .5)
-	&__text
-		margin: 10px 0
-		position: relative
-		z-index: 3
-		color: #ffffff
-		+r(1919)
-			margin: 5px 0
-			font-size: 18px
-		+r(1439)
-			margin: 0
-			font-size: 16px
-	&__item:hover &__text
-		color: #333333
-	
 		
 /* Contact
 	----------------------------------- */

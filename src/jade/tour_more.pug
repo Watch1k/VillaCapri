@@ -1,0 +1,47 @@
+extend includes/_layout
+block title
+	title Экскурсии (подробнее)
+block right
+block body
+	include includes/_tourAside
+block content
+	.page.page_full.page_room.room
+		.page__inner.room__inner.js-room-fullpage2
+			.room__bg(style='background-image: url(img/bg/section-5.jpg)')
+			.room__bg(style='background-image: url(img/bg/section-1.jpg)')
+			.room__bg(style='background-image: url(img/bg/section-2.jpg)')
+			.content
+				.content__inner
+					.content__main.content__main_wide
+						.content__main-title.gallery__title НАЗВАНИЕ <br>ЭКСКУРСИИ №2
+						.content__main-text-normal.js-disable-scroll Полное описание экскурсии полное описание экскурсии полное описание <br>экскурсии полное описание экскурсии полное описание экскурсии <br>полное описание экскурсии полное описание экскурсии <br>полное описание экскурсии полное описание экскурсии полное <br>описание экскурсии полное описание экскурсии <br>полное описание экскурсии
+					.content__row
+						.content__submain.content__submain_wide
+							.content__options.options.options_full
+								.options__left
+									.options__row
+										.options__item
+											.options__icon.icon.icon-tour-1
+										.options__item
+											.options__icon.icon.icon-tour-2
+										.options__item
+											.options__icon.icon.icon-tour-3
+									.options__row
+										.options__item
+											.options__icon.icon.icon-tour-4
+										.options__item
+											.options__icon.icon.icon-tour-5
+										.options__item
+											.options__icon.icon.icon-tour-6
+								.options__content
+									.options__content-row
+										.content__main-price Стоимость:&nbsp;
+											span.content__main-price-color от 5000 руб.
+									.options__content-row
+										.options__content-price.options__content-price_white Предваритеьное бронирование<br> путевок
+							.content__suboptions.options.options_gray
+								.options__row.options__right.js-suboption
+									a.options__item.is-active(href='#')
+										.options__icon.icon.icon-suboption-1
+									a.options__item(href='#')
+										.options__icon.icon.icon-suboption-2

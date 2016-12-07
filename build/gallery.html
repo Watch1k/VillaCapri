@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Gallery</title>
+  <title>Галерея</title>
   <meta name="format-detection" content="telephone=no">
   <!-- theme color for android 5.0 -->
   <meta name="theme-color" content="#fff">
@@ -12,25 +12,23 @@
   <link rel="stylesheet" media="all" href="css/screen.css">
   <!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
 </head>
-<!--begin gallery-aside-->
-<div class="gallery-aside">
-  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-6-sm.jpg)">
-    <div class="gallery-aside__text">Интерьер и экстерьер Villa Capri</div>
+<!--begin room-aside-->
+<div class="room-aside">
+  <div class="room-aside__item" style="background-image: url(img/content/gallery-2-sm.jpg)">
+    <div class="room-aside__text">Детская зона</div>
   </div>
-  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-7-sm.jpg)">
-    <div class="gallery-aside__text">Территория Villa Capri</div>
+  <div class="room-aside__item is-active" style="background-image: url(img/content/gallery-1-sm.jpg)">
+    <div class="room-aside__text">Lounge зона с кинотеатром под открытым небом</div>
+    <button class="room-aside__more" type="button">ПОДРОБНЕЕ</button>
   </div>
-  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-8-sm.jpg)">
-    <div class="gallery-aside__text">Наши экскурсии</div>
+  <div class="room-aside__item" style="background-image: url(img/content/gallery-3-sm.jpg)">
+    <div class="room-aside__text">Бассейн</div>
   </div>
-  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-9-sm.jpg)">
-    <div class="gallery-aside__text">Активный отдых</div>
-  </div>
-  <div class="gallery-aside__item" style="background-image: url(img/content/gallery-10-sm.jpg)">
-    <div class="gallery-aside__text">Наши мероприятия</div>
+  <div class="room-aside__item" style="background-image: url(img/content/gallery-4-sm.jpg)">
+    <div class="room-aside__text">Wi-fi и офис на море</div>
   </div>
 </div>
-<!--end gallery-aside-->
+<!--end room-aside-->
 
 <body>
   <div class="preload-image js-preload-image"></div>
@@ -97,32 +95,76 @@
   </div>
   <!--end navigation-->
   <div class="page page_full page_gallery gallery js-move-wrapper">
-    <div class="page__inner page__gallery gallery__inner">
-      <div class="gallery__screen js-gallery"></div>
-      <div class="gallery__content js-gallery-content is-active">
-        <div class="gallery__item gallery__item_2" style="background-image: url(img/content/gallery-item-7.jpg)">
-          <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
-          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-7.jpg"></a>
+    <div class="page__inner page__gallery gallery__inner js-room-fullpage" style="background-image: url(../img/bg/section-4-3.jpg)">
+      <div class="content content_gallery js-room-page" style="background-image: url(../img/bg/section-4-3.jpg)">
+        <div class="content__inner">
+          <div class="content__main content__main_gallery">
+            <div class="content__main-title gallery__title">LOUNGE ЗОНА <br>С КИНОТЕАТРОМ ПОД <br>ОТКРЫТЫМ НЕБОМ</div>
+            <div class="content__main-desc">Описание раздела описание раздела описание раздела <br>описание раздела описание раздела описание <br>раздела описание раздела</div>
+          </div>
+          <div class="content__row">
+            <div class="content__submain content__submain_wide">
+              <div class="content__options options options_gray">
+                <div class="options__row options__right js-suboption">
+                  <a class="options__item js-gallery-btn" href="#">
+                    <div class="options__icon icon icon-suboption-1"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="gallery__item gallery__item_2" style="background-image: url(img/content/gallery-item-8.jpg)">
+      </div>
+      <div class="gallery__content gallery__bg js-room-page js-gallery-content js-move-wrapper">
+        <div class="gallery__item gallery__item_2" style="background-image: url(img/content/gallery-item-1.jpg)">
           <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
-          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-8.jpg"></a>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-1.jpg"></a>
         </div>
-        <div class="gallery__item" style="background-image: url(img/content/gallery-item-9.jpg)">
+        <div class="gallery__item gallery__item_2" style="background-image: url(img/content/gallery-item-2.jpg)">
           <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
-          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-9.jpg"></a>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-2.jpg"></a>
         </div>
-        <div class="gallery__item" style="background-image: url(img/content/gallery-item-10.jpg)">
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-3.jpg)">
           <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
-          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-10.jpg"></a>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-3.jpg"></a>
         </div>
-        <div class="gallery__item" style="background-image: url(img/content/gallery-item-11.jpg)">
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-4.jpg)">
           <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
-          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-11.jpg"></a>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-4.jpg"></a>
         </div>
-        <div class="gallery__item" style="background-image: url(img/content/gallery-item-12.jpg)">
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-5.jpg)">
           <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
-          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-12.jpg"></a>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-5.jpg"></a>
+        </div>
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-6.jpg)">
+          <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-6.jpg"></a>
+        </div>
+      </div>
+      <div class="gallery__content gallery__bg js-room-page js-gallery-content js-move-wrapper">
+        <div class="gallery__item gallery__item_2" style="background-image: url(img/content/gallery-item-1.jpg)">
+          <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-1.jpg"></a>
+        </div>
+        <div class="gallery__item gallery__item_2" style="background-image: url(img/content/gallery-item-2.jpg)">
+          <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-2.jpg"></a>
+        </div>
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-3.jpg)">
+          <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-3.jpg"></a>
+        </div>
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-4.jpg)">
+          <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-4.jpg"></a>
+        </div>
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-5.jpg)">
+          <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-5.jpg"></a>
+        </div>
+        <div class="gallery__item" style="background-image: url(img/content/gallery-item-6.jpg)">
+          <div class="gallery__item-text">РЕСТОРАН VILLA CAPRI</div>
+          <a class="gallery__zoom-in js-gallery-zoom" href="#" data-href="img/content/gallery-item-6.jpg"></a>
         </div>
       </div>
     </div>

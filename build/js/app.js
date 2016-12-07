@@ -116,47 +116,150 @@ $(document).ready(function () {
 
 	//gallery
 	(function () {
-		var galleryBtn = $('.js-gallery-btn'),
-			gallery = $('.js-gallery'),
+		var gallery = $('.js-gallery'),
 			galleryContent = $('.js-gallery-content'),
-			zoomBtn = $('.js-gallery-zoom');
+			zoomBtn = $('.js-gallery-zoom'),
+			disableScroll = $('.js-disable-scroll');
 
-		galleryBtn.on('click', function () {
-			galleryContent.fadeIn().css('display', 'flex');
-		});
-
-		zoomBtn.on('click', function (e) {
-			e.preventDefault();
-			var _this = $(this),
-				href = _this.data('href');
-			$('<div class="gallery__bg js-gallery-bg" style="background-image: url(' + href + '"><button type="button" class="gallery__bg-btn js-gallery-zoom-out"></button></div>').insertAfter(galleryContent);
-			$('.js-gallery-bg').fadeIn();
-			$('.js-gallery-zoom-out').on('click', function () {
-				var _thisBtn = $(this);
-				_thisBtn.parent().fadeOut(function () {
-					_thisBtn.parent().remove();
-				});
-			});
-		});
-	})();
-
-	//navigation
-	(function () {
 		var hamburger = $('.js-hamburger'),
 			phone = $('.js-phone'),
 			aside = $('.js-aside'),
 			geoBtn = $('.js-geo'),
 			navigation = $('.js-navigation'),
 			navigation2 = $('.js-navigation2'),
-			moveWrapper = $('.js-move-wrapper'),
-			gallery = $('.js-gallery');
+			moveWrapper = $('.js-move-wrapper');
 
-		hamburger.on('click', function () {
-			if (gallery.length) {
-				if ($('.js-gallery-bg').length) {
-					$('.js-gallery-bg').toggleClass('is-move');
+		var roomFullpage = $('.js-room-fullpage'),
+			roomFullpage2 = $('.js-room-fullpage2'),
+			suboption = $('.js-suboption').children(),
+			galleryBtn = $('.js-gallery-btn');
+
+		if (roomFullpage.length) {
+			roomFullpage.pagepiling({
+				menu: null,
+				direction: 'vertical',
+				verticalCentered: true,
+				sectionsColor: [],
+				anchors: [],
+				scrollingSpeed: 700,
+				easing: 'swing',
+				loopBottom: true,
+				loopTop: true,
+				css3: true,
+				navigation: false,
+				normalScrollElements: null,
+				normalScrollElementTouchThreshold: 20,
+				touchSensitivity: 20,
+				keyboardScrolling: true,
+				sectionSelector: '.js-room-page',
+				animateAnchor: false
+			});
+
+			disableScroll.on('mouseenter', function () {
+				$.fn.pagepiling.setAllowScrolling(false);
+			});
+
+			disableScroll.on('mouseleave', function () {
+				$.fn.pagepiling.setAllowScrolling(true);
+			});
+
+			galleryBtn.on('click', function () {
+				$.fn.pagepiling.moveSectionDown();
+			});
+		}
+
+		$(this).toString();
+
+		if (roomFullpage2.length) {
+			roomFullpage2.pagepiling({
+				menu: null,
+				direction: 'vertical',
+				verticalCentered: true,
+				sectionsColor: [],
+				anchors: [],
+				scrollingSpeed: 700,
+				easing: 'swing',
+				loopBottom: true,
+				loopTop: true,
+				css3: true,
+				navigation: false,
+				normalScrollElements: null,
+				normalScrollElementTouchThreshold: 20,
+				touchSensitivity: 20,
+				keyboardScrolling: true,
+				sectionSelector: '.room__bg',
+				animateAnchor: false,
+				onLeave: function (index, nextIndex, direction) {
+					switch (nextIndex) {
+						case 1:
+							suboption.removeClass('is-active');
+							suboption.eq(0).addClass('is-active');
+							break;
+						case 2:
+							suboption.removeClass('is-active');
+							suboption.eq(0).addClass('is-active');
+							break;
+						case 3:
+							suboption.removeClass('is-active');
+							suboption.eq(1).addClass('is-active');
+							break;
+						case 4:
+							suboption.removeClass('is-active');
+							suboption.eq(2).addClass('is-active');
+							break;
+						default:
+							suboption.removeClass('is-active');
+					}
 				}
-			}
+			});
+
+			disableScroll.on('mouseenter', function () {
+				$.fn.pagepiling.setAllowScrolling(false);
+			});
+
+			disableScroll.on('mouseleave', function () {
+				$.fn.pagepiling.setAllowScrolling(true);
+			});
+		}
+
+		zoomBtn.on('click', function (e) {
+			e.preventDefault();
+			$.fn.pagepiling.setAllowScrolling(false);
+			var _this = $(this),
+				href = _this.data('href');
+			$('<div class="gallery__bg js-gallery-bg" style="background-image: url(' + href + ')"><button type="button" class="gallery__bg-btn js-gallery-zoom-out"></button></div>').insertAfter(_this.closest(galleryContent));
+			$('.js-gallery-bg').fadeIn();
+			hamburger.unbind('click');
+			hamburger.on('click', function () {
+				if ($('.js-gallery-bg').hasClass('is-move')) {
+					$('.js-gallery-bg').removeClass('is-move');
+				} else {
+					$('.js-gallery-bg').addClass('is-move');
+				}
+				if (moveWrapper.length) {
+					moveWrapper.toggleClass('is-move');
+				}
+				$(this).toggleClass('is-active');
+				phone.toggleClass('is-active');
+				if ($(this).hasClass('is-geo')) {
+					navigation2.fadeToggle().css('display', 'flex').toggleClass('is-active');
+					$(this).removeClass('is-geo');
+				} else {
+					navigation.fadeToggle().css('display', 'flex').toggleClass('is-active');
+				}
+				aside.fadeToggle().css('display', 'flex');
+			});
+			$('.js-gallery-zoom-out').on('click', function () {
+				var _thisBtn = $(this);
+				$.fn.pagepiling.setAllowScrolling(true);
+				_thisBtn.parent().fadeOut(function () {
+					_thisBtn.parent().remove();
+				});
+			});
+		});
+
+		//navigation
+		hamburger.on('click', function () {
 			if (moveWrapper.length) {
 				moveWrapper.toggleClass('is-move');
 			}
@@ -345,12 +448,16 @@ $(document).ready(function () {
 
 				//events
 				onLeave: function (index, nextIndex, direction) {
-					if (((nextIndex > index) || (index == 5 && nextIndex == 1)) && !((index == 1) && (nextIndex == 5))) {
+					if ((nextIndex > index || index == 5 && nextIndex == 1)) if (!(index == 1 && nextIndex == 5)) {
 						if (!controlInd) {
 							slideNext(nextBtn);
 						} else {
 							controlInd = false;
 						}
+					} else if (!controlInd) {
+						slidePrev(prevBtn);
+					} else {
+						controlInd = false;
 					} else {
 						if (!controlInd) {
 							slidePrev(prevBtn);
@@ -366,5 +473,17 @@ $(document).ready(function () {
 			});
 		})();
 	}
+
+	//Room Page
+	(function () {
+		var requestBtn = $('.js-room-request'),
+			requestShow = $('.js-room-request-show');
+
+		requestBtn.on('click', function (e) {
+			e.preventDefault();
+			$(this).siblings().filter(requestShow).slideToggle();
+		});
+
+	})();
 
 });

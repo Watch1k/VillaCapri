@@ -1,0 +1,40 @@
+extend includes/_layout
+block title
+	title Активный отдых
+block right
+block body
+	include includes/_restAside
+block content
+	.page.page_full.page_room.room
+		.page__inner.room__inner
+			.room__bg(style='background-image: url(img/content/3.jpg)')
+			.content
+				.content__inner
+					.content__main.content__main_rest
+						.content__main-title.gallery__title БЕЖАТЬ НАВСТРЕЧУ<br> ВЕТРУ
+						.content__main-price.content__main-rest Бег, скандинавская<br> ходьба
+					.content__row
+						.content__submain.content__submain_rest
+							.content__options.options.options_full.options_rest
+								.options__rest.options__rest_left
+									.options__rest-btn
+										span.icon.icon-geo-white
+										span.options__rest-btn-text 3 км
+								.options__rest-map.rest-map
+									img.rest-map__temp-img(src='img/content/map.jpg' alt='temp')
+								.options__right.options__right_rest
+									.options__row
+										.options__item.options__item_rest
+											.options__item-text 1 км
+										.options__item.options__item_rest.is-active
+											.options__item-text 3 км
+									.options__row
+										.options__item.options__item_rest
+											.options__item-text 5 км
+										.options__item.options__item_rest
+											.options__item-text 7 км
+									.options__row
+										.options__item.options__item_rest
+											.options__item-text 9 км
+										.options__item.options__item_rest
+											.options__item-text 10 км
