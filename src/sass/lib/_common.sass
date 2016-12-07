@@ -1110,16 +1110,20 @@ img
 			font-size: 0
 			flex: 0 1 auto
 			display: flex
+			flex-direction: column
 			.options__row
 				display: flex
 				flex: 1 0 auto
-				flex-direction: column
 	&__rest
 		&_left
 			display: flex
 			flex: 0 0 auto
 		&-map
+			margin-right: 1px
 			flex: 1 1 auto
+			&_right
+				margin-left: 1px
+				margin-right: 0
 		&-btn
 			cursor: pointer
 			display: flex
@@ -1131,6 +1135,8 @@ img
 			text-align: center
 			justify-content: center
 			align-items: center
+			+r(1599)
+				font-size: 18px
 			&-text
 				margin-top: 15px
 			
@@ -1142,7 +1148,122 @@ img
 		height: 100%
 		max-height: 100%
 		
-			
+.rest
+	&__map
+		height: 190px
+		+r(1919)
+			height: 132px
+	&__cover
+		background-size: cover
+		background-position: center center
+		background-repeat: no-repeat
+	&__content
+		padding-top: 72px
+		padding-left: 190px
+		+r(1919)
+			padding-top: 60px
+		+r(1599)
+			padding-left: 140px
+	&__inner
+		display: flex
+		height: 100%
+		width: 100%
+		flex-direction: column
+		text-align: right
+		transition: all 0.4s
+		&.is-move
+			padding-left: 190px
+			+r(1599)
+				padding-left: 160px
+	&__row
+		flex-basis: 50%
+		display: flex
+	&__col
+		flex-basis: 50%
+		&_text
+			padding: 40px 45px
+			transition: all 0.4s
+			+r(1919)
+				padding: 30px 35px
+			+r(1439)
+				padding: 25px 30px
+		&_bg
+			background-position: center center
+			background-size: cover
+			background-repeat: no-repeat
+	&__row:nth-child(1) &__col_text
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			z-index: 10
+			top: 81px
+			left: 0
+			margin-left: -15px
+			+arr(15,30,#ffffff,l)
+			+trs
+			+r(1919)
+				top: 51px
+	&__row:nth-child(2) &__col_text
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			z-index: 10
+			top: 81px
+			right: 0
+			margin-right: -15px
+			+arr(15,30,#ffffff,r)
+			+trs
+			+r(1919)
+				top: 51px
+	&__inner.is-move &__col_text
+		padding-left: 5px
+	&__title
+		+sfui
+		font-size: 44px
+		text-transform: uppercase
+		+r(1919)
+			font-size: 36px
+		+r(1599)
+			font-size: 32px
+		+r(1439)
+			font-size: 26px
+	&__subtitle
+		margin-top: 20px
+		font-size: 35px
+		+r(1919)
+			margin-top: 15px
+			font-size: 30px
+		+r(1599)
+			font-size: 26px
+		+r(1439)
+			font-size: 22px
+			margin-top: 5px
+	&__text
+		+r(1599)
+			font-size: 18px
+		+r(1439)
+			font-size: 16px
+	&__subtitle + &__text
+		position: relative
+		margin-top: 35px
+		+r(1439)
+			margin-top: 30px
+		&:before
+			content: ''
+			position: absolute
+			z-index: 1
+			top: -15px
+			left: 100px
+			right: 0
+			height: 2px
+			background-color: rgba(51, 51, 51, 0.5)
+			transition: all 0.4s
+	&__inner.is-move &__subtitle + &__text
+		&:before
+			left: 15px
+
 /* ===================================
 	 Form
 	 =================================== */
@@ -1294,6 +1415,9 @@ img
 		z-index: 1
 		padding-top: 0!important
 		padding-left: 0!important
+		background-position: center center
+		background-repeat: no-repeat
+		background-size: cover
 		> *
 			padding-top: 72px
 			padding-left: 190px
@@ -1418,7 +1542,7 @@ img
 			flex-wrap: wrap
 			transition: all 0.4s
 		&.is-move .pp-tableCell
-			padding-left: 160px
+			padding-left: 190px
 			+r(1599)
 				padding-left: 160px
 		&.is-active
@@ -1520,7 +1644,6 @@ img
 	bottom: 0
 	height: 100%
 	width: 195px
-	+sfui
 	border-left: 5px solid #ffffff
 	+r(1439)
 		width: 160px
@@ -1532,6 +1655,10 @@ img
 		top: 20%
 		margin-top: 60px
 		+arr(15,30,#ffffff,l)
+	&_no-arrow
+		&:before
+			content: none
+			display: none
 	&__item
 		cursor: pointer
 		display: flex
@@ -1851,7 +1978,7 @@ img
 	left: 190px
 	top: 0
 	z-index: 104
-	padding: 13px
+	padding: 23px 13px 24px
 	pointer-events: auto
 	-webkit-tap-highlight-color: transparent
 	cursor: pointer
@@ -1868,7 +1995,7 @@ img
 	overflow: visible
 	transition: all 0.4s
 	+r(1919)
-		padding: 10px
+		padding: 17px 10px 18px
 	+r(1599)
 		left: 140px
 	&:hover
